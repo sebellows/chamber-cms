@@ -1,0 +1,55 @@
+/**
+ * Oni form styling for ACF fields
+ */
+
+// Everything is wrapped in the `.acf-postbox` class to
+// have leverage over ACFs CSS specificity
+.post-type-people #postbox-container-2 .inside.acf-fields {
+  position: relative;
+  padding-left: 300px !important;
+
+.oni-field--photo {
+  border-right: 1px solid #eee;
+  margin-left: -300px;
+  width: 300px;
+}
+
+.oni-field {
+  float: left;
+  clear: initial !important;
+  min-height: initial !important;
+
+  .acf-input-wrap,
+  .acf-oni-input-wrap {
+    display: flex;
+    align-items: center;
+
+    input { flex: 1; }
+  }
+}
+
+.oni-field--firstName,
+.oni-field--lastName {
+  width: 45%;
+}
+
+.oni-field--mi {
+  width: 10%;
+}
+
+.oni-field--tel {
+  border-bottom: 1px solid #eee;
+  width: 50%;
+}
+
+.oni-field--email {
+  border-bottom: 1px solid #eee;
+  border-left: 1px solid #eee;
+  width: 50%;
+}
+
+.oni-field--job {
+  width: 100%;
+}
+
+}

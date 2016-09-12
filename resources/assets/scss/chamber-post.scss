@@ -1,0 +1,10 @@
+@import "core.scss";
+@import "icons.scss";
+@import "icon-picker.scss";
+@import "animation.scss";
+@import "acf-forms";
+
+/* Hide the metabox "add new attraction category" toggle */
+.attraction_category-adder {
+  display: none;
+}

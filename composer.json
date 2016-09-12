@@ -1,0 +1,42 @@
+{
+  "name": "sebellows/chamber-cms",
+  "type": "project",
+  "description": "Chamber",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Sean Bellows",
+      "email": "seanbellows@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "keywords": [
+    "chamber", "cms", "wordpress", "wp", "composer"
+  ],
+  "config": {
+    "preferred-install": "dist",
+    "optimize-autoloader": true
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "autoload": {
+    "psr-4": {
+      "Chamber\\": "app/",
+      "Oni\\Framework\\": "framework/"
+    },
+    "files": [
+      "bootstrap/helpers.php"
+    ]
+  },
+  "require": {
+    "php": ">=5.5",
+    "composer/installers": "~1.0.12",
+    "illuminate/database": "5.3.*",
+    "illuminate/http": "5.3.*",
+    "jgrossi/corcel": "dev-master",
+    "jjgrainger/posttypes": "^1.0",
+    "symfony/var-dumper": "~3.0",
+    "twig/twig": "~1.16",
+    "vierbergenlars/php-semver": "~3.0"
+  }
+}

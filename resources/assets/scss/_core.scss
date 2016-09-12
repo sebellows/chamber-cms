@@ -1,0 +1,19 @@
+$white:     #FEFEFE;
+$snow:      #E6E6E6;
+$gainsboro: #DCDCDC;
+$heather:   #CCC;
+$sterling:  #AAA;
+$gray:      #999;
+$asher:     #555;
+$raven:     #333;
+$jet:       #1A1A1A;
+$primary:   #52ACCC;
+
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: "";
+    display: block;
+    line-height: 0;
+  }
+}

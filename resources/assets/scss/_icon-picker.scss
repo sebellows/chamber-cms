@@ -1,0 +1,272 @@
+.icons-selector {
+  display: inline-block;
+  font-family: "Open Sans", "Segoe UI", "AvenirNext-Regular", "Roboto", Arial, sans-serif;
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+  }
+
+  .selector {
+    border: 1px solid $gainsboro;
+    width: 100px;
+    height: 40px;
+    background-color: $white;
+  }
+
+  /// Selector Button
+  //
+  .selector-button {
+    background-color: $white;
+    width: 39px;
+    height: 100%;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    float: left;
+    border-left: 1px solid darken($white,6.5%);
+
+    &:hover {
+      background-color: darken($white,3.25%);
+    }
+
+    &:hover svg {
+      fill: $sterling;
+    }
+
+    svg {
+      width: 20px; height: 20px;
+      margin-top: 10px;
+      text-align: center;
+      fill: $gray;
+    }
+  }
+
+  /// Selected Icon
+  //
+  .selected-icon {
+    display: block;
+    width: 59px;
+    height: 100%;
+    float: left;
+    text-align: center;
+
+    svg {
+      width: 24px;
+      height: 24px;
+      margin-top: 7px;
+      cursor: default;
+      fill: $asher;
+    }
+  }
+
+  /// Pop-Up
+  //
+  .selector-popup {
+    position: absolute;
+    z-index: 10000;
+    background-color: $white;
+    padding: 10px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .04);
+    height: auto;
+    width: 300px;
+    border: 1px solid $gainsboro;
+    margin-top: -1px;
+
+    @media only screen and (min-width: 375px) {
+      width: 344px;
+    }
+  }
+
+  /// Search
+  //
+  .selector-search {
+    input[type=text] {
+      line-height: 20px;
+      padding: 10px 2.5%;
+      width: 100%;
+      border: 1px solid $gainsboro;
+      box-sizing: border-box;
+      margin-bottom: 5px;
+      font-size: 12px;
+      color: $asher;
+      box-shadow: none;
+      outline: 0;
+    }
+
+    svg {
+      fill: $sterling;
+      margin-left: -30px;
+      width: 16px; height: 16px;
+      position: relative;
+      top: 4px;
+    }
+  }
+
+  input::-webkit-input-placeholder {
+    color: $sterling;
+    text-transform: uppercase;
+  }
+
+  input::-moz-placeholder {
+    color: $sterling;
+    text-transform: uppercase;
+  }
+
+  input:-moz-placeholder {
+    color: $sterling;
+    text-transform: uppercase;
+  }
+
+  input:-ms-input-placeholder {
+    color: $sterling !important;
+    text-transform: uppercase;
+  }
+
+  input::input-placeholder {
+    color: $sterling;
+    text-transform: uppercase;
+  }
+
+  /// Icon Container
+  //
+  .sip-icons-container {
+    width: 100%;
+    background-color: $white;
+    border: 1px solid $gainsboro;
+    box-sizing: border-box;
+
+    .loading {
+      fill: $snow;
+      margin: 20px auto;
+      text-align: center;
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
+
+  // Icon Box
+  .sip-box {
+    height: 40px;
+    border: 1px solid $gainsboro;
+    display: inline-block;
+    margin: 2px;
+    width: 60px;
+    line-height: 1;
+    text-align: center;
+    cursor: pointer;
+    vertical-align: top;
+    transition: background-color .3s;
+
+    &:focus,
+    &:hover {
+      background-color: $primary;
+    }
+
+    > svg {
+      width: 24px;
+      height: 24px;
+      margin-top: 8px;
+    }
+  }
+
+  /// Footer
+  //
+  .selector-footer {
+    color: $gray;
+    line-height: 16px;
+    padding: 10px 5px 0;
+
+    svg {
+      fill: currentColor;
+    }
+  }
+
+  /// Pagination Arrows
+  //
+  .selector-arrows {
+    float: right;
+
+    svg {
+      cursor: pointer;
+      width: 16px; height: 16px;
+
+      &:hover {
+        fill: lighten($gray,6.5%);
+      }
+    }
+  }
+
+  .selector-arrow-right {
+    margin-left: 5px;
+  }
+
+  /// Current Selected Icon
+  //
+  span.current-icon {
+    &,
+    &:hover {
+      background-color: $primary;
+      color: $white;
+      border: 1px solid darken($primary,3.25%);
+    }
+  }
+
+  /// Icon Selection Error
+  //
+  .icons-picker-error svg {
+    fill: $snow;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin: 20px auto;
+    display: block;
+    cursor: default;
+  }
+
+  // Search icon
+  .sip-icon-search {
+    cursor: default;
+  }
+
+  // Cancel icon
+  .sip-icon-cancel {
+    cursor: pointer;
+  }
+
+  // Empty icon block
+  .sip-icon-block[data-sip-value="sip-icon-block"],
+  .selected-icon svg.sip-icon-block {
+    fill: #FED0D0;
+  }
+
+  // Spinner icon for loader
+  .sip-icon-spin {
+    animation: spin 2s infinite linear;
+    display: inline-block;
+  }
+
+  // Spinner animation
+  @keyframes spin {
+      0% {
+      transform: rotate(0deg)
+    }
+      100% {
+      transform: rotate(359deg)
+    }
+  }
+}
+
+.no_box .icons-selector .selector,
+#edittag .icons-selector .selector,
+#addtag .icons-selector .selector {
+  border: 1px solid $gainsboro;
+}
+
+#addtag .icons-selector .selector-popup,
+#edittag .icons-selector .selector-popup {
+  position: relative;
+}
