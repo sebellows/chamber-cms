@@ -33,7 +33,6 @@
     "composer/installers": "~1.0.12",
     "illuminate/database": "5.3.*",
     "illuminate/http": "5.3.*",
-    "jgrossi/corcel": "dev-master",
     "jjgrainger/posttypes": "^1.0",
     "symfony/var-dumper": "~3.0",
     "twig/twig": "~1.16",

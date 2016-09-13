@@ -6,7 +6,6 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Cookie\CookieJar;
 use Oni\Framework\Session;
-use Corcel\Database;
 
 /**
  * @see docs
@@ -159,7 +158,7 @@ class oniServiceProvider extends ServiceProvider {
     {
         global $wpdb;
 
-        // $capsule = new Capsule($this->app);
+        $capsule = new Capsule($this->app);
 
         $params = [
             'driver' => 'mysql',
@@ -171,10 +170,9 @@ class oniServiceProvider extends ServiceProvider {
             'collation' => DB_COLLATE ?: $wpdb->collate,
             'prefix' => $wpdb->prefix
         ];
-        Database::connect($params);
 
-        // $capsule->setAsGlobal();
-        // $capsule->bootEloquent();
+        $capsule->setAsGlobal();
+        $capsule->bootEloquent();
     }
 
     /**

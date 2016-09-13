@@ -5,7 +5,7 @@ namespace Oni\Framework;
 use Illuminate\Support\ServiceProvider;
 use vierbergenlars\SemVer\version as SemVersion;
 use vierbergenlars\SemVer\expression as SemVersionExpression;
-use Corcel\Database\Manager as CorcelManager;
+use Illuminate\Database\Capsule\Manager as CapsuleManager;
 use Illuminate\Database\Schema\Blueprint as SchemaBlueprint;
 use Oni\Framework\Contracts\Plugin;
 
@@ -508,12 +508,12 @@ class Application extends \Illuminate\Container\Container implements \Illuminate
                 continue;
             }
 
-            if (CorcelManager::schema()->hasTable($table))
+            if (CapsuleManager::schema()->hasTable($table))
             {
                 continue;
             }
 
-            CorcelManager::schema()->create($table, function (SchemaBlueprint $table) use ($class)
+            CapsuleManager::schema()->create($table, function (SchemaBlueprint $table) use ($class)
             {
                 $this->call($class . '@activate', ['table' => $table, 'app' => $this]);
             });
@@ -583,12 +583,12 @@ class Application extends \Illuminate\Container\Container implements \Illuminate
                 continue;
             }
 
-            if ( ! CorcelManager::schema()->hasTable($table))
+            if ( ! CapsuleManager::schema()->hasTable($table))
             {
                 continue;
             }
 
-            CorcelManager::schema()->table($table, function (SchemaBlueprint $table) use ($class)
+            CapsuleManager::schema()->table($table, function (SchemaBlueprint $table) use ($class)
             {
                 $this->call($class . '@deactivate', ['table' => $table, 'app' => $this]);
             });
@@ -646,12 +646,12 @@ class Application extends \Illuminate\Container\Container implements \Illuminate
                 continue;
             }
 
-            if ( ! CorcelManager::schema()->hasTable($table))
+            if ( ! CapsuleManager::schema()->hasTable($table))
             {
                 continue;
             }
 
-            CorcelManager::schema()->table($table, function (SchemaBlueprint $table) use ($class)
+            CapsuleManager::schema()->table($table, function (SchemaBlueprint $table) use ($class)
             {
                 $this->call($class . '@delete', ['table' => $table, 'app' => $this]);
             });
