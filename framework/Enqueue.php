@@ -74,11 +74,19 @@ class Enqueue {
         }
         else
         {
-            wp_enqueue_script($attrs['as'], $attrs['src'], [], false, $footer);
+            wp_register_script(
+                $attrs['as'],
+                $attrs['src'],
+                (array) array_get($attrs, 'dep', []),
+                false,
+                $footer
+            );
 
             if(isset($attrs['localize'])) {
                 wp_localize_script( $attrs['as'], $attrs['as'], $attrs['localize'] );
             }
+
+            wp_enqueue_script($attrs['as']);
         }
     }
 
@@ -189,7 +197,7 @@ class Enqueue {
     public function filterPanel($attrs, $filterWith)
     {
         $panels = $this->app['panel']->getPanels();
-        $page = $this->app['http']->get('page', false);
+        $page = $this->app['request']->get('page', false);
 
         if (!$page && function_exists('get_current_screen'))
         {

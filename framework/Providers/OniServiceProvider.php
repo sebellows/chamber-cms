@@ -6,6 +6,7 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Cookie\CookieJar;
 use Oni\Framework\Session;
+use Corcel\Database;
 
 /**
  * @see docs
@@ -29,13 +30,13 @@ class oniServiceProvider extends ServiceProvider {
         );
 
         $this->app->instance(
-            'http',
-            \Oni\Framework\Http::capture()
+            'request',
+            \Oni\Framework\Request::capture()
         );
 
         $this->app->alias(
-            'http',
-            'Oni\Framework\Http'
+            'request',
+            'Oni\Framework\Request'
         );
 
         $this->app->instance(
@@ -108,6 +109,36 @@ class oniServiceProvider extends ServiceProvider {
             'Oni\Framework\Notifier'
         );
 
+        $this->app->instance(
+            'user',
+            $this->app->make('Oni\Framework\User', ['app' => $this->app])
+        );
+
+        $this->app->alias(
+            'user',
+            'Oni\Framework\User'
+        );
+
+        $this->app->instance(
+            'cache',
+            $this->app->make('Oni\Framework\Support\Cache', ['app' => $this->app])
+        );
+
+        $this->app->alias(
+            'cache',
+            'Oni\Framework\Support\Cache'
+        );
+
+        $this->app->instance(
+            'validator',
+            $this->app->make('Oni\Framework\Support\Validator', ['app' => $this->app])
+        );
+
+        $this->app->alias(
+            'validator',
+            'Oni\Framework\Support\Validator'
+        );
+
         $this->app->singleton(
             'errors',
             function ()
@@ -128,9 +159,9 @@ class oniServiceProvider extends ServiceProvider {
     {
         global $wpdb;
 
-        $capsule = new Capsule($this->app);
+        // $capsule = new Capsule($this->app);
 
-        $capsule->addConnection([
+        $params = [
             'driver' => 'mysql',
             'host' => DB_HOST,
             'database' => DB_NAME,
@@ -139,10 +170,11 @@ class oniServiceProvider extends ServiceProvider {
             'charset' => DB_CHARSET,
             'collation' => DB_COLLATE ?: $wpdb->collate,
             'prefix' => $wpdb->prefix
-        ]);
+        ];
+        Database::connect($params);
 
-        $capsule->setAsGlobal();
-        $capsule->bootEloquent();
+        // $capsule->setAsGlobal();
+        // $capsule->bootEloquent();
     }
 
     /**

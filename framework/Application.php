@@ -5,7 +5,7 @@ namespace Oni\Framework;
 use Illuminate\Support\ServiceProvider;
 use vierbergenlars\SemVer\version as SemVersion;
 use vierbergenlars\SemVer\expression as SemVersionExpression;
-use Illuminate\Database\Capsule\Manager as CapsuleManager;
+use Corcel\Database\Manager as CorcelManager;
 use Illuminate\Database\Schema\Blueprint as SchemaBlueprint;
 use Oni\Framework\Contracts\Plugin;
 
@@ -499,7 +499,7 @@ class Application extends \Illuminate\Container\Container implements \Illuminate
             $plugin->activate();
         }
 
-        $config = $this->getPluginConfig($root);
+        $config = $this->getPluginConfig($root);    
 
         foreach (array_get($config, 'tables', []) as $table => $class)
         {
@@ -508,12 +508,12 @@ class Application extends \Illuminate\Container\Container implements \Illuminate
                 continue;
             }
 
-            if (CapsuleManager::schema()->hasTable($table))
+            if (CorcelManager::schema()->hasTable($table))
             {
                 continue;
             }
 
-            CapsuleManager::schema()->create($table, function (SchemaBlueprint $table) use ($class)
+            CorcelManager::schema()->create($table, function (SchemaBlueprint $table) use ($class)
             {
                 $this->call($class . '@activate', ['table' => $table, 'app' => $this]);
             });
@@ -527,7 +527,7 @@ class Application extends \Illuminate\Container\Container implements \Illuminate
             }
 
             $this->loadWith($activator, [
-                'http',
+                'request',
                 'router',
                 'enqueue',
                 'panel',
@@ -567,7 +567,7 @@ class Application extends \Illuminate\Container\Container implements \Illuminate
             }
 
             $this->loadWith($deactivator, [
-                'http',
+                'request',
                 'router',
                 'enqueue',
                 'panel',
@@ -583,12 +583,12 @@ class Application extends \Illuminate\Container\Container implements \Illuminate
                 continue;
             }
 
-            if ( ! CapsuleManager::schema()->hasTable($table))
+            if ( ! CorcelManager::schema()->hasTable($table))
             {
                 continue;
             }
 
-            CapsuleManager::schema()->table($table, function (SchemaBlueprint $table) use ($class)
+            CorcelManager::schema()->table($table, function (SchemaBlueprint $table) use ($class)
             {
                 $this->call($class . '@deactivate', ['table' => $table, 'app' => $this]);
             });
@@ -630,7 +630,7 @@ class Application extends \Illuminate\Container\Container implements \Illuminate
             }
 
             $this->loadWith($deleter, [
-                'http',
+                'request',
                 'router',
                 'enqueue',
                 'panel',
@@ -646,12 +646,12 @@ class Application extends \Illuminate\Container\Container implements \Illuminate
                 continue;
             }
 
-            if ( ! CapsuleManager::schema()->hasTable($table))
+            if ( ! CorcelManager::schema()->hasTable($table))
             {
                 continue;
             }
 
-            CapsuleManager::schema()->table($table, function (SchemaBlueprint $table) use ($class)
+            CorcelManager::schema()->table($table, function (SchemaBlueprint $table) use ($class)
             {
                 $this->call($class . '@delete', ['table' => $table, 'app' => $this]);
             });

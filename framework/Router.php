@@ -34,9 +34,9 @@ class Router {
     protected $app;
 
     /**
-     * @var \Oni\Framework\Http
+     * @var \Oni\Framework\Request
      */
-    protected $http;
+    protected $request;
 
     /**
      * @var array
@@ -76,12 +76,12 @@ class Router {
      * Adds the action hooks for WordPress.
      *
      * @param \Oni\Framework\Application $app
-     * @param \Oni\Framework\Http        $http
+     * @param \Oni\Framework\Request     $request
      */
-    public function __construct(Application $app, Http $http)
+    public function __construct(Application $app, Request $request)
     {
         $this->app = $app;
-        $this->http = $http;
+        $this->request = $request;
 
         add_action('wp_loaded', [$this, 'flush']);
         add_action('init', [$this, 'boot']);
@@ -97,11 +97,11 @@ class Router {
     {
         add_rewrite_tag('%oni_route%', '(.+)');
         
-        if(is_array($this->routes[$this->http->method()]))
+        if(is_array($this->routes[$this->request->method()]))
         {
-            foreach ($this->routes[$this->http->method()] as $id => $route)
+            foreach ($this->routes[$this->request->method()] as $id => $route)
             {
-                $this->addRoute($route, $id, $this->http->method());
+                $this->addRoute($route, $id, $this->request->method());
             } 
         }
         
@@ -210,9 +210,9 @@ class Router {
         $data = @json_decode($wp->query_vars['oni_route'], true);
         $route = null;
 
-        if (isset($data['id']) && isset($this->routes[$this->http->method()][$data['id']]))
+        if (isset($data['id']) && isset($this->routes[$this->request->method()][$data['id']]))
         {
-            $route = $this->routes[$this->http->method()][$data['id']];
+            $route = $this->routes[$this->request->method()][$data['id']];
         }
         elseif (isset($data['name']) && isset($this->routes['named'][$data['name']]))
         {

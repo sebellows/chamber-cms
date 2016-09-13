@@ -41,9 +41,9 @@ class Panel {
     protected $app;
 
     /**
-     * @var \Oni\Framework\Http
+     * @var \Oni\Framework\Request
      */
-    protected $http;
+    protected $request;
 
     /**
      * @var array
@@ -61,12 +61,12 @@ class Panel {
      * Adds the WordPress hook during construction.
      *
      * @param \Oni\Framework\Application $app
-     * @param \Oni\Framework\Http        $http
+     * @param \Oni\Framework\Request        $request
      */
-    public function __construct(Application $app, Http $http)
+    public function __construct(Application $app, Request $request)
     {
         $this->app = $app;
-        $this->http = $http;
+        $this->request = $request;
 
         if ( ! is_admin())
         {
@@ -75,14 +75,14 @@ class Panel {
 
         add_action('admin_menu', [$this, 'boot']);
 
-        $http->setMethod($http->get('_method'), $old = $http->method());
+        $request->setMethod($request->get('_method'), $old = $request->method());
 
-        if ( ! in_array($http->method(), self::$methods))
+        if ( ! in_array($request->method(), self::$methods))
         {
-            $http->setMethod($old);
+            $request->setMethod($old);
         }
 
-        if ($http->method() !== 'GET')
+        if ($request->method() !== 'GET')
         {
             add_action('init', [$this, 'bootEarly']);
         }
@@ -120,7 +120,7 @@ class Panel {
      */
     public function bootEarly()
     {
-        if (($slug = $this->http->get('page')) === null)
+        if (($slug = $this->request->get('page')) === null)
         {
             return;
         }
@@ -443,8 +443,8 @@ class Panel {
     protected function handler($panel, $strict = false)
     {
         $callable = $uses = $panel['uses'];
-        $method = strtolower($this->http->method());
-        $action = strtolower($this->http->get('action', 'uses'));
+        $method = strtolower($this->request->method());
+        $action = strtolower($this->request->get('action', 'uses'));
 
         $callable = array_get($panel, $method, false) ?: $callable;
 
