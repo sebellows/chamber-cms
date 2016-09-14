@@ -21,7 +21,7 @@ class PersonPostType
                 'slug'     => 'people'
             ],
             [
-                'supports'     => [ 'title', 'editor', 'thumbnail' ],
+                'supports'     => [ 'thumbnail' ],
                 'show_in_menu' => FALSE,
                 'show_in_rest' => true,
                 'taxonomies'   => ['department'],

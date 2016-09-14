@@ -38,7 +38,7 @@ return [
      * The tables to manage.
      */
     'tables' => [
-        'people' => 'Chamber\Tables\People'
+        // 'people' => 'Chamber\Tables\People'
     ],
 
     /**

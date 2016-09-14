@@ -22,7 +22,7 @@ class People
 	    $table->string('email');
 	    $table->string('profile_image');
 	    $table->timestamps();
-	});
+	};
 
 	/**
 	 * Deactivates the table.
