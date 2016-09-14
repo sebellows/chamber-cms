@@ -1,6 +1,6 @@
 {
   "name": "sebellows/chamber-cms",
-  "type": "package",
+  "type": "wordpress-plugin",
   "description": "Chamber",
   "license": "MIT",
   "authors": [{
