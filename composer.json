@@ -1,15 +1,13 @@
 {
   "name": "sebellows/chamber-cms",
-  "type": "project",
+  "type": "wordpress-plugin",
   "description": "Chamber",
   "license": "MIT",
-  "authors": [
-    {
-      "name": "Sean Bellows",
-      "email": "seanbellows@gmail.com",
-      "role": "Developer"
-    }
-  ],
+  "authors": [{
+    "name": "Sean Bellows",
+    "email": "seanbellows@gmail.com",
+    "role": "Developer"
+  }],
   "keywords": [
     "chamber", "cms", "wordpress", "wp", "composer"
   ],
