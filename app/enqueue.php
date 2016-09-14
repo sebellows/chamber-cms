@@ -47,8 +47,21 @@ $enqueue->admin([
 
 /*
 |--------------------------------------------------------------------------
-| Edit.php
+| ACF Restrict Color Picker
 |--------------------------------------------------------------------------
 |
-| Register the CSS and JavaScript for edit.php
+| Register the CSS and JavaScript for the admin settings menu page.
 */
+$enqueue->admin([
+    'as' => 'panelCSS',
+    'src' => Helper::assetUrl('/css/chamber-panel.css'),
+    'filter' => [ 'panel' => '*' ],
+]);
+
+// $enqueue->admin([
+//     'as' => 'acfRCPOptions',
+//     'src' => Helper::assetUrl('/js/acfRestrictColorPicker.js'),
+//     'dep' => 'jquery',
+//     'filter' => [ 'hook' => 'post.php' ],
+//     'localize' => \Chamber\ACF\acfRestrictColorPicker::localize();
+// ], 'footer');

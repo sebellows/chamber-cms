@@ -14,19 +14,21 @@ var elixir = require("laravel-elixir");
 elixir.config.css.autoprefix.options.browsers = ["last 2 versions", "ie >= 10"];
 
 elixir(function(mix) {
-  mix.copy( elixir.config.assetsPath + "/images", elixir.config.publicPath + "/images" );
 
-  mix.sass( "oni-icons.scss", elixir.config.publicPath + "/css/oni-icons.css" )
-     .sass( "oni-iconpicker.scss", elixir.config.publicPath + "/css/oni-iconpicker.css" )
-     .sass( "oni-options.scss", elixir.config.publicPath + "/css/oni-options.css" );
+  mix.sass( "chamber-panel.scss" );
 
-  mix.scripts( "oni.tabs.js", elixir.config.publicPath + "/js/oni.options.js" );
+  mix.sass( "chamber-post.scss" );
 
   mix.scripts([
-    "oni.iconpicker.js",
-    "oni.svgiconpicker.js",
-    "oni.ajax.svgsprite.js",
-    "oni.changetelpattern.js"
-  ], elixir.config.publicPath + "/js/oni.edit.js");
+    "jquery.oni.tabs.js"
+    "jquery.cardWidget.js"
+  ], "chamber-panel.js");
 
-});
+  mix.scripts([
+    "jquery.svgIconPicker.js",
+    "jquery.svgIconPicker.ajax.js"
+  ], "chamber-post.js");
+
+  mix.scripts( "jquery.acfRestrictColorPicker.js" );
+
+}
