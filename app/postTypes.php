@@ -6,9 +6,9 @@ function chamber_posttypes()
 {
 	$cpt = [];
 
-	$cpt = new \Chamber\PostTypes\AttractionPostType;
-	$cpt = new \Chamber\PostTypes\PersonPostType;
-	// $cpt = new \Chamber\PostTypes\ProjectPostType;
+	$cpt = new \Chamber\PostTypes\Attraction;
+	$cpt = new \Chamber\PostTypes\Person;
+	// $cpt = new \Chamber\PostTypes\Project;
 
 	return $cpt;
 }
