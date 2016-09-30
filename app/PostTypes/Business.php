@@ -5,26 +5,26 @@ namespace Chamber\PostTypes;
 use PostTypes\PostType;
 
 /**
- * People
+ * Businesses
  * 
  * @var PostTypes\PostType
  */
-class Person
+class Business
 {
     public function __construct()
     {
-        $people = new PostType(
+        $businesses = new PostType(
             [
-                'name'     => 'People',
-                'singular' => 'Person',
-                'plural'   => 'People',
-                'slug'     => 'people'
+                'name'     => 'Businesses',
+                'singular' => 'Business',
+                'plural'   => 'Businesses',
+                'slug'     => 'businesses'
             ],
             [
                 'supports'     => [ 'thumbnail' ],
                 'show_in_menu' => FALSE,
                 'show_in_rest' => TRUE,
-                'taxonomies'   => ['department'],
+                'taxonomies'   => ['business_type'],
                 'rewrite'      => [
                     'with_front' => FALSE,
                     'pages'      => TRUE,
@@ -34,8 +34,8 @@ class Person
             ]
         );
 
-        $people->taxonomy(
-            'department',
+        $businesses->taxonomy(
+            'business_type',
             [
                 'show_ui'      => FALSE,
                 'capabilities' => [
@@ -47,10 +47,10 @@ class Person
             ]
         );
 
-        $people->columns()->set([
+        $businesses->columns()->set([
             'cb'         => '<input type="checkbox" />',
             'title'      => __('Title'),
-            'department' => __('Department')
+            'business_type' => __('Business Type')
         ]);
     } 
 }

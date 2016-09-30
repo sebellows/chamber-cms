@@ -5,20 +5,20 @@ namespace Chamber\PostTypes;
 use PostTypes\PostType;
 
 /**
- * Attraction
+ * Testimonials
  * 
- * @var \PostTypes\PostType
+ * @var PostTypes\PostType
  */
-class Project
+class Testimonial
 {
     public function __construct()
     {
-        $project = new PostType(
+        $testimonials = new PostType(
             [
-                'name'     => 'Project',
-                'singular' => 'Project',
-                'plural'   => 'Projects',
-                'slug'     => 'projects'
+                'name'     => 'Testimonials',
+                'singular' => 'Testimonial',
+                'plural'   => 'Testimonials',
+                'slug'     => 'testimonials'
             ],
             [
                 'supports'     => [
@@ -36,5 +36,10 @@ class Project
                 ]
             ]
         );
+
+        $testimonials->columns()->set([
+            'cb'         => '<input type="checkbox" />',
+            'title'      => __('Title')
+        ]);
     } 
 }

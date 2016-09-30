@@ -20,7 +20,12 @@ class Attraction
                 'show_in_menu' => FALSE,
                 'show_in_rest' => TRUE,
                 'taxonomies'   => ['attraction_category'],
-                'rewrite'      => ['slug' => 'attractions', 'with_front' => FALSE],
+                'rewrite'      => [
+                    'with_front' => FALSE,
+                    'pages'      => TRUE,
+                    'feeds'      => TRUE,
+                    'ep_mask'    => EP_PERMALINK
+                ],
                 'has_archive'  => TRUE
             ]
         );
@@ -43,7 +48,6 @@ class Attraction
                 ],
                 'query_var'    => TRUE,
                 'hierarchical' => TRUE
-                // 'rewrite'      => ['slug' => 'attraction-categories', 'with_front' => FALSE]
             ]
         );
 
