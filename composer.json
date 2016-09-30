@@ -29,8 +29,8 @@
   "require": {
     "php": ">=5.5",
     "composer/installers": "^1.0",
-    "illuminate/database": "5.3.*",
-    "illuminate/http": "5.3.*",
+    "illuminate/database": "~5.3.9",
+    "illuminate/http": "~5.3.9",
     "jjgrainger/posttypes": "^1.0",
     "symfony/var-dumper": "~3.0",
     "twig/twig": "~1.16",
