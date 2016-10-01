@@ -53,7 +53,7 @@ class Widget {
     }
 
     /**
-     * Adds a wdiget.
+     * Adds a widget.
      *
      * @param  string $widget
      * @param  Plugin $plugin

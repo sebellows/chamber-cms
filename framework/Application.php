@@ -724,7 +724,7 @@ class Application extends \Illuminate\Container\Container implements \Illuminate
     protected function registerBaseProviders()
     {
         $this->register($this->resolveProviderClass(
-            'Oni\Framework\Providers\oniServiceProvider'
+            'Oni\Framework\Providers\OniServiceProvider'
         ));
 
         $this->register($this->resolveProviderClass(

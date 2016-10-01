@@ -262,8 +262,8 @@ class Router {
 
             status_header($e->getStatus());
 
-            define('oni_HTTP_ERROR_CODE', $e->getStatus());
-            define('oni_HTTP_ERROR_MESSAGE', $e->getMessage());
+            define('ONI_HTTP_ERROR_CODE', $e->getStatus());
+            define('ONI_HTTP_ERROR_MESSAGE', $e->getMessage());
 
             if ($e->getStatus() === 404)
             {

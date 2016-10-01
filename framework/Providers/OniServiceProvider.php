@@ -10,7 +10,7 @@ use Oni\Framework\Session;
 /**
  * @see docs
  */
-class oniServiceProvider extends ServiceProvider {
+class OniServiceProvider extends ServiceProvider {
 
     /**
      * Register the service provider.
@@ -23,7 +23,7 @@ class oniServiceProvider extends ServiceProvider {
 
         $this->app->instance(
             'env',
-            defined('oni_ENV') ? oni_ENV
+            defined('ONI_ENV') ? ONI_ENV
                 : (defined('WP_DEBUG') ? 'local'
                     : 'production')
         );
