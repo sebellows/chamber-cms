@@ -134,7 +134,7 @@
 
   /// Icon Container
   //
-  .sip-icons-container {
+  .chamber-icons-container {
     width: 100%;
     background-color: $white;
     border: 1px solid $gainsboro;
@@ -150,7 +150,7 @@
   }
 
   // Icon Box
-  .sip-box {
+  .chamber-box {
     height: 40px;
     border: 1px solid $gainsboro;
     display: inline-block;
@@ -228,23 +228,23 @@
   }
 
   // Search icon
-  .sip-icon-search {
+  .chamber-icon-search {
     cursor: default;
   }
 
   // Cancel icon
-  .sip-icon-cancel {
+  .chamber-icon-cancel {
     cursor: pointer;
   }
 
   // Empty icon block
-  .sip-icon-block[data-sip-value="sip-icon-block"],
-  .selected-icon svg.sip-icon-block {
+  .chamber-icon-block[data-chamber-value="chamber-icon-block"],
+  .selected-icon svg.chamber-icon-block {
     fill: #FED0D0;
   }
 
   // Spinner icon for loader
-  .sip-icon-spin {
+  .chamber-icon-spin {
     animation: spin 2s infinite linear;
     display: inline-block;
   }

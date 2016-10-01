@@ -15,7 +15,7 @@
 
   // Create the defaults once
   var defaults = {
-    theme             : 'sip-grey',              // The CSS theme to use with this svgIconPicker. You can set different themes on multiple elements on the same page
+    theme             : 'chamber-grey',              // The CSS theme to use with this svgIconPicker. You can set different themes on multiple elements on the same page
     source            : false,                   // Icons source (array|false|object)
     emptyIcon         : true,                    // Empty icon should be shown?
     emptyIconValue    : '',                      // The value of the empty icon, change if you select has something else, say "none"
@@ -41,36 +41,36 @@
         style:    'position: relative',
          html:    '<div class="selector">' +
                     '<span class="selected-icon">' +
-                      '<svg class="sip-icon-up-dir" viewbox="0 0 32 32"><use xlink:href="#icon-arrow-up" /></svg>' +
+                      '<svg class="chamber-icon-up-dir" viewbox="0 0 32 32"><use xlink:href="#icon-arrow-up" /></svg>' +
                     '</span>' +
                     '<span class="selector-button">' +
-                      '<svg class="sip-icon-down-dir" viewbox="0 0 32 32"><use xlink:href="#icon-arrow-down" /></svg>' +
+                      '<svg class="chamber-icon-down-dir" viewbox="0 0 32 32"><use xlink:href="#icon-arrow-down" /></svg>' +
                     '</span>' +
                    '</div>' +
                    '<div class="selector-popup" style="display: none;">' + ((this.settings.hasSearch) ?
                      '<div class="selector-search">' +
                        '<input type="text" name="" value="" placeholder="Search icon" class="icons-search-input"/>' +
-                       '<svg class="sip-icon-search" viewbox="0 0 32 32"><use xlink:href="#icon-search" /></svg>' +
+                       '<svg class="chamber-icon-search" viewbox="0 0 32 32"><use xlink:href="#icon-search" /></svg>' +
                      '</div>' : '') +
                      '<div class="selector-category">' +
                        '<select name="" class="icon-category-select" style="display: none">' +
                        '</select>' +
                      '</div>' +
-                     '<div class="sip-icons-container"></div>' +
+                     '<div class="chamber-icons-container"></div>' +
                      '<div class="selector-footer" style="display:none;">' +
                        '<span class="selector-pages">1/2</span>' +
                        '<span class="selector-arrows">' +
                          '<span class="selector-arrow-left" style="display:none;">' +
-                           '<svg class="sip-icon-left-dir" viewbox="0 0 32 32"><use xlink:href="#icon-arrow-left" /></svg>' +
+                           '<svg class="chamber-icon-left-dir" viewbox="0 0 32 32"><use xlink:href="#icon-arrow-left" /></svg>' +
                          '</span>' +
                          '<span class="selector-arrow-right">' +
-                           '<svg class="sip-icon-left-dir" viewbox="0 0 32 32"><use xlink:href="#icon-arrow-right" /></svg>' +
+                           '<svg class="chamber-icon-left-dir" viewbox="0 0 32 32"><use xlink:href="#icon-arrow-right" /></svg>' +
                          '</span>' +
                        '</span>' +
                      '</div>' +
                    '</div>'
     });
-    this.iconContainer = this.iconPicker.find('.sip-icons-container');
+    this.iconContainer = this.iconPicker.find('.chamber-icons-container');
     this.searchIcon = this.iconPicker.find('.selector-search svg');
     this.iconsSearched = [];
     this.isSearch = false;
@@ -358,8 +358,8 @@
         }
 
         // Set icon search to X to reset search
-        this.searchIcon.removeClass('sip-icon-search');
-        this.searchIcon.addClass('sip-icon-cancel');
+        this.searchIcon.removeClass('chamber-icon-search');
+        this.searchIcon.addClass('chamber-icon-cancel');
 
         // Set this as a search
         this.isSearch = true;
@@ -385,7 +385,7 @@
       /**
        * Quit search
        */
-      this.iconPicker.find('.selector-search').on('click', '.sip-icon-cancel', $.proxy(function () {
+      this.iconPicker.find('.selector-search').on('click', '.chamber-icon-cancel', $.proxy(function () {
         this.iconPicker.find('.icons-search-input').focus();
         this.resetSearch();
       }, this));
@@ -393,8 +393,8 @@
       /**
        * On icon selected
        */
-      this.iconContainer.on('click', '.sip-box', $.proxy(function (e) {
-        this.setSelectedIcon($(e.currentTarget).find('svg').attr('data-sip-value'));
+      this.iconContainer.on('click', '.chamber-box', $.proxy(function (e) {
+        this.setSelectedIcon($(e.currentTarget).find('svg').attr('data-chamber-value'));
         this.toggleIconSelector();
       }, this));
 
@@ -558,7 +558,7 @@
     loadIcons: function () {
 
       // Set the content of the popup as loading
-      this.iconContainer.html('<svg class="sip-icon-spinner animate-spin loading" viewbox="0 0 32 32"><use xlink:href="spinner" /></svg>');
+      this.iconContainer.html('<svg class="chamber-icon-spinner animate-spin loading" viewbox="0 0 32 32"><use xlink:href="spinner" /></svg>');
 
       // If source is set
       if (this.settings.source instanceof Array) {
@@ -606,11 +606,11 @@
       // Should empty icon be shown?
       if (this.settings.emptyIcon) {
         // Reset icon container HTML and prepend empty icon
-        this.iconContainer.html('<span class="sip-box"><svg class="sip-icon-block" data-sip-value="sip-icon-block" viewBox="0 0 32 32"><use xlink:href="#icon-cancel-circle" /></svg></span>');
+        this.iconContainer.html('<span class="chamber-box"><svg class="chamber-icon-block" data-chamber-value="chamber-icon-block" viewBox="0 0 32 32"><use xlink:href="#icon-cancel-circle" /></svg></span>');
 
       // If not show an error when no icons are found
       } else if (iconsPaged.length < 1) {
-        this.iconContainer.html('<span class="icons-picker-error"><svg class="sip-icon-block" data-sip-value="sip-icon-block" viewBox="0 0 32 32"><use xlink:href="#icon-cancel-circle" /></svg></span>');
+        this.iconContainer.html('<span class="icons-picker-error"><svg class="chamber-icon-block" data-chamber-value="chamber-icon-block" viewBox="0 0 32 32"><use xlink:href="#icon-cancel-circle" /></svg></span>');
         return;
 
       // else empty the container
@@ -635,8 +635,8 @@
 
         // Set the icon box
         $('<span/>', {
-          html:      '<svg data-sip-value="' + item + '" ' + (this.settings.useAttribute ? (this.settings.attributeName + '="' + ( this.settings.convertToHex ? '&#x' + parseInt(item, 10).toString(16) + ';' : item ) + '"') : 'class="sip-icon-block"') + '><use xlink:href="#' + item + '" /></svg>',
-          'class':   'sip-box',
+          html:      '<svg data-chamber-value="' + item + '" ' + (this.settings.useAttribute ? (this.settings.attributeName + '="' + ( this.settings.convertToHex ? '&#x' + parseInt(item, 10).toString(16) + ';' : item ) + '"') : 'class="chamber-icon-block"') + '><use xlink:href="#' + item + '" /></svg>',
+          'class':   'chamber-box',
           title: flipBoxTitle
         }).appendTo(this.iconContainer);
       }
@@ -666,7 +666,7 @@
     setHighlightedIcon: function () {
       this.iconContainer.find('.current-icon').removeClass('current-icon');
       if (this.currentIcon) {
-        this.iconContainer.find('[data-sip-value="' + this.currentIcon + '"]').parent('span').addClass('current-icon');
+        this.iconContainer.find('[data-chamber-value="' + this.currentIcon + '"]').parent('span').addClass('current-icon');
       }
     },
 
@@ -676,20 +676,20 @@
      * @param {string} theIcon
      */
     setSelectedIcon: function (theIcon) {
-      if (theIcon === 'sip-icon-block') {
+      if (theIcon === 'chamber-icon-block') {
         theIcon = '';
       }
 
       // Check if attribute is to be used
       if ( this.settings.useAttribute ) {
         if ( theIcon ) {
-          this.iconPicker.find('.selected-icon').html('<svg class="sip-icon-block" viewbox="0 0 32 32"><use xlink:href="#' + this.settings.attributeName + '="' + ( this.settings.convertToHex ? '&#x' + parseInt(theIcon, 10).toString(16) + ';' : theIcon ) + '" /></svg>' );
+          this.iconPicker.find('.selected-icon').html('<svg class="chamber-icon-block" viewbox="0 0 32 32"><use xlink:href="#' + this.settings.attributeName + '="' + ( this.settings.convertToHex ? '&#x' + parseInt(theIcon, 10).toString(16) + ';' : theIcon ) + '" /></svg>' );
         } else {
-          this.iconPicker.find('.selected-icon').html('<svg class="sip-icon-block" viewbox="0 0 32 32"></svg>');
+          this.iconPicker.find('.selected-icon').html('<svg class="chamber-icon-block" viewbox="0 0 32 32"></svg>');
         }
       // Use class
       } else {
-        this.iconPicker.find('.selected-icon').html('<svg class="' + (theIcon || 'sip-icon-block') + '" viewbox="0 0 32 32"><use xlink:href="#' + (theIcon || 'sip-icon-block') + '" /></svg>');
+        this.iconPicker.find('.selected-icon').html('<svg class="' + (theIcon || 'chamber-icon-block') + '" viewbox="0 0 32 32"><use xlink:href="#' + (theIcon || 'chamber-icon-block') + '" /></svg>');
       }
       // Set the value of the element and trigger change event
       this.element.val((theIcon === '' ? this.settings.emptyIconValue : theIcon )).trigger('change');
@@ -709,8 +709,8 @@
     toggleIconSelector: function () {
       this.open = (!this.open) ? 1 : 0;
       this.iconPicker.find('.selector-popup').slideToggle(300);
-      this.iconPicker.find('.selector-button svg').toggleClass('sip-icon-down-dir');
-      this.iconPicker.find('.selector-button svg').toggleClass('sip-icon-up-dir');
+      this.iconPicker.find('.selector-button svg').toggleClass('chamber-icon-down-dir');
+      this.iconPicker.find('.selector-button svg').toggleClass('chamber-icon-up-dir');
       if (this.open) {
         this.iconPicker.find('.icons-search-input').focus().select();
       }
@@ -725,8 +725,8 @@
       this.iconPicker.find('.icons-search-input').val('');
 
       // Reset search icon class
-      this.searchIcon.removeClass('sip-icon-cancel');
-      this.searchIcon.addClass('sip-icon-search');
+      this.searchIcon.removeClass('chamber-icon-cancel');
+      this.searchIcon.addClass('chamber-icon-search');
 
       // Go back to page 1 and remove back arrow
       this.iconPicker.find('.selector-arrow-left').hide();

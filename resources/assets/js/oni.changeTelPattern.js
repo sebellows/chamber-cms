@@ -23,7 +23,7 @@
     let tooltipContent = getTitleValue(x);
     let tooltipArrow = createArrow();
 
-    tooltipDiv.classList.add('oni-tooltip');
+    tooltipDiv.classList.add('chamber-tooltip');
     tooltipDiv.innerHTML = tooltipContent;
     tooltipDiv.style.cssText = 'background:rgba(0,0,0,0.8);border-radius:4px;color:#fff;font:13px/1.3 sans-serif;text-align:center;padding:5px;width:200px;position:absolute;top:100%;left:-95px;z-index:1000;';
     tooltipDiv.appendChild(tooltipArrow);
@@ -37,7 +37,7 @@
    * @return void
    */
   var removeTooltip = function() {
-    let tooltipParent = document.querySelector('.oni-tooltip').parentNode;
+    let tooltipParent = document.querySelector('.chamber-tooltip').parentNode;
     tooltipParent.removeChild(tooltipParent.childNodes[0]);
   }
 
@@ -58,14 +58,14 @@
 
   // Event Listeners
   document.addEventListener('click', function(event) {
-    if (event.target.hasAttribute('data-oni-toggle')) {
+    if (event.target.hasAttribute('data-chamber-toggle')) {
       toggleTooltip(event.target);
     }
   }, false);
 
   // Click anywhere to dismiss the tooltip
   // document.querySelector('html').addEventListener('click', function(event) {
-  //   if ( document.querySelector('.oni-tooltip') ) {
+  //   if ( document.querySelector('.chamber-tooltip') ) {
   //     removeTooltip();
   //   }
   // }, false);

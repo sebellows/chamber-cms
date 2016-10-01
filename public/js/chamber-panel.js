@@ -2,15 +2,15 @@
 
   "use strict";
 
-    var tabs = $("#oni-tabs");
+    var tabs = $("#chamber-tabs");
 
     // For each individual tab DIV, set class and aria-hidden attribute, and hide it
-    $(tabs).find(".oni-tabs-panel").attr({
+    $(tabs).find(".chamber-tabs-panel").attr({
         "aria-hidden": "true"
     }).hide();
 
     // Get the list of tab links
-    var tabsList = $("#oni-admin-tabs");
+    var tabsList = $("#chamber-admin-tabs");
 
     // For each item in the tabs list...
     $(tabsList).find("li > a").each(
@@ -27,7 +27,7 @@
         }).parent().attr("role", "presentation");
 
         // Assign aria attribute to the relevant tab panel
-        $(tabs).find(".oni-tabs-panel").eq(a).attr("aria-labelledby", tabId);
+        $(tabs).find(".chamber-tabs-panel").eq(a).attr("aria-labelledby", tabId);
 
         // Set the click event for each tab link
         tab.click(
@@ -41,10 +41,10 @@
             $(tabsList).find("> li.is-active").removeClass("is-active").find("> a").attr("aria-selected", "false");
 
             // Hide previously selected tabPanel
-            $(tabs).find(".oni-tabs-panel:visible").attr("aria-hidden", "true").hide();
+            $(tabs).find(".chamber-tabs-panel:visible").attr("aria-hidden", "true").hide();
 
             // Show newly selected tabPanel
-            tabPanel = $(tabs).find(".oni-tabs-panel").eq(tab.parent().index());
+            tabPanel = $(tabs).find(".chamber-tabs-panel").eq(tab.parent().index());
             tabPanel.attr("aria-hidden", "false").show();
 
             // Set state of newly selected tab list item
@@ -81,7 +81,7 @@
     );
 
     // Show the first tabPanel
-    $(tabs).find(".oni-tabs-panel:first").attr("aria-hidden", "false").show();
+    $(tabs).find(".chamber-tabs-panel:first").attr("aria-hidden", "false").show();
 
     // Set state for the first tabsList li
     $(tabsList).find("li:first").addClass("is-active").find(" > a").attr({
@@ -89,4 +89,4 @@
       "tabindex": "0"
     });
 })(jQuery);
-//# sourceMappingURL=oni-panel.js.map
+//# sourceMappingURL=chamber-panel.js.map

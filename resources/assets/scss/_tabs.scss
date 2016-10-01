@@ -1,9 +1,9 @@
 
-#oni-tabs.oni-post-box {
+#chamber-tabs.chamber-post-box {
   margin-top: 20px;
 }
 
-.oni-tabs {
+.chamber-tabs {
   margin: 0;
   list-style-type: none;
   background: $white;
@@ -19,7 +19,7 @@
   }
 }
 
-.oni-tabs-title {
+.chamber-tabs-title {
   float: left;
   margin-bottom: 0;
 
@@ -40,8 +40,8 @@
   }
 }
 
-.oni-box,
-.oni-tabs-panel {
+.chamber-box,
+.chamber-tabs-panel {
   background: $white;
   border: 1px solid $snow;
   border-top: 0;
@@ -59,7 +59,7 @@
   }
 }
 
-.oni-tabs-panel {
+.chamber-tabs-panel {
   padding: 1rem;
   transition: opacity .5s ease-in;
 
@@ -72,11 +72,11 @@
   }
 }
 
-.oni-box-content {
+.chamber-box-content {
   padding: 15px;
 }
 
-.oni-footer {
+.chamber-footer {
   background: darken($white, 5%);
   border-top: 1px solid darken($snow, 5%);
   overflow: hidden;
@@ -84,21 +84,21 @@
   position: relative;
 }
 
-.oni-box {
-  .oni-footer {
-    .oni-hl > li {
+.chamber-box {
+  .chamber-footer {
+    .chamber-hl > li {
       margin: 0 10px 0 0;
     }
   }
 
-  .oni-footer-blue {
+  .chamber-footer-blue {
     background-color: $primary;
     border-top: 0 none;
     color: $white;
   }
 }
 
-.oni-hl {
+.chamber-hl {
   padding: 0;
   margin: 0;
   list-style: none;
@@ -115,16 +115,16 @@
 }
 
 @media only screen and (min-width: 850px) {
-  .oni-admin-wrap {
+  .chamber-admin-wrap {
     margin-right: 300px;
   }
 
-  .oni-post-box {
+  .chamber-post-box {
     float: left;
     width: 100%;
   }
 
-  .oni-callout {
+  .chamber-callout {
     float: right;
     margin-top: 20px;
     margin-right: -300px;

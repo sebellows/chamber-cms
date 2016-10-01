@@ -43,6 +43,7 @@ $enqueue->admin([
     'src' => Helper::assetUrl('/js/chamber-post.js'),
     'dep' => 'jquery',
     'filter' => [ 'hook' => 'post.php' ],
+    'localize' => [ 'icons_url' => Helper::assetUrl('/icons/symbol-defs.svg') ]
 ], 'footer');
 
 /*

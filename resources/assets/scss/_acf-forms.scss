@@ -8,19 +8,19 @@
   position: relative;
   padding-left: 300px !important;
 
-.oni-field--photo {
+.chamber-field--photo {
   border-right: 1px solid #eee;
   margin-left: -300px;
   width: 300px;
 }
 
-.oni-field {
+.chamber-field {
   float: left;
   clear: initial !important;
   min-height: initial !important;
 
   .acf-input-wrap,
-  .acf-oni-input-wrap {
+  .acf-chamber-input-wrap {
     display: flex;
     align-items: center;
 
@@ -28,27 +28,27 @@
   }
 }
 
-.oni-field--firstName,
-.oni-field--lastName {
+.chamber-field--firstName,
+.chamber-field--lastName {
   width: 45%;
 }
 
-.oni-field--mi {
+.chamber-field--mi {
   width: 10%;
 }
 
-.oni-field--tel {
+.chamber-field--tel {
   border-bottom: 1px solid #eee;
   width: 50%;
 }
 
-.oni-field--email {
+.chamber-field--email {
   border-bottom: 1px solid #eee;
   border-left: 1px solid #eee;
   width: 50%;
 }
 
-.oni-field--job {
+.chamber-field--job {
   width: 100%;
 }
 
