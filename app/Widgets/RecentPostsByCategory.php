@@ -2,22 +2,36 @@
 
 namespace Chamber\Widgets;
 
+use Chamber\Helper;
+
 /**
  * @see docs
  */
 class RecentPostsByCategory extends \WP_Widget {
 
-    public function __construct() {
+    public $widget_id;  // identifier of this widget for WP
+
+    public $widget_name;  // name of this widget
+
+    public $widget_class;  // name of this widget
+
+    public function __construct()
+    {
+        $this->widget_class = Helper::prefix('recent_posts_by_category');
+        $this->widget_id    = Helper::slugify($this->widget_class);
+        $this->widget_name  = Helper::humanize($this->widget_class);
+
         $params = [
-            'classname'   => 'chamber_recent_posts_by_category',
+            'classname'   => $this->widget_class,
             'description' => 'Most recent posts by category.'
         ];
-        parent::__construct( __NAMESPACE__.'\\RecentPostsByCategory', 'Chamber Recent Posts By Category', $params );
+        parent::__construct( $this->widget_id, $this->widget_name, $params );
     }
 
     // --------------------------------------------------------------
 
-    public function widget( $args, $instance ) {
+    public function widget( $args, $instance )
+    {
 
         if ( ! isset( $args['widget_id'] ) ) {
             $args['widget_id'] = $this->id;
@@ -30,7 +44,7 @@ class RecentPostsByCategory extends \WP_Widget {
         $show_excerpt = isset( $instance['show_excerpt'] ) ? $instance['show_excerpt'] : false;
         $show_date    = isset( $instance['show_date'] ) ? $instance['show_date'] : false;
 
-        $r = new WP_Query( apply_filters( 'widget_posts_args', [
+        $r = new \WP_Query( apply_filters( 'widget_posts_args', [
             'post_type' => 'post',
             'posts_per_page' => $number,
             'cat' => $category,
@@ -84,7 +98,8 @@ class RecentPostsByCategory extends \WP_Widget {
 
     // --------------------------------------------------------------
 
-    public function form( $instance ) {
+    public function form( $instance )
+    {
         $title        = isset( $instance['title'] ) ? esc_attr( $instance['title'] ) : '';
         $category     = isset( $instance['category'] ) ? $instance['category']: 'post';
         $number       = isset( $instance['number'] ) ? absint( $instance['number'] ) : 5;
@@ -98,7 +113,7 @@ class RecentPostsByCategory extends \WP_Widget {
         </p>
 
         <p>
-            <label for="widget-chamber-recent-posts-by-category">Category:</label>        
+            <label for="widget-<?php $this->widget_id; ?>">Category:</label>        
             
             <?php
 
@@ -140,15 +155,21 @@ class RecentPostsByCategory extends \WP_Widget {
 
     // --------------------------------------------------------------
 
-    public function update( $new_instance, $old_instance ) {
+    public function update( $new_instance, $old_instance )
+    {
         $instance                 = $old_instance;
         $instance['title']        = strip_tags( $new_instance['title'] );
         $instance['category']     = strip_tags( $new_instance['category'] );
         $instance['number']       = strip_tags( (int) $new_instance['number'] );
-        $instance['show_thumb'] = isset( $new_instance['show_thumb'] ) ? (bool) $new_instance['show_thumb'] : false;
+        $instance['show_thumb']   = isset( $new_instance['show_thumb'] ) ? (bool) $new_instance['show_thumb'] : false;
         $instance['show_excerpt'] = isset( $new_instance['show_excerpt'] ) ? (bool) $new_instance['show_excerpt'] : false;
-        $instance['show_date'] = isset( $new_instance['show_date'] ) ? (bool) $new_instance['show_date'] : false;
+        $instance['show_date']    = isset( $new_instance['show_date'] ) ? (bool) $new_instance['show_date'] : false;
         return $instance;
+    }
+
+    public function flush()
+    {
+        wp_cache_delete( $this->widget_id, 'widget' );
     }
 
 }

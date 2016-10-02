@@ -144,6 +144,11 @@ class Helper {
         return $plural;
     }
 
+    public static function slugify( $string )
+    {
+        return strtolower(str_replace([' ', '_'], '-', $string));
+    }
+
     /**
      * Return the plugin`s registered name in composer.json file as a string.
      * 
@@ -153,6 +158,21 @@ class Helper {
     {
         // return $this->basePath . '/' . strtolower(basename($this->basePath));
         return rtrim(oni()->getNamespace(), '\\');
+    }
+
+    /**
+     * Prefixes a given string using define prefix 
+     * 
+     * @param  string $string
+     * @param  string $splitter
+     * @return string
+     */
+    public static function prefix($string, $splitter = '_')
+    {
+        $prefix = self::get('prefix');
+        $prefix = trim($prefix, $splitter);
+
+        return sprintf("%s%s%s", $prefix, $splitter, $string);
     }
 
 }

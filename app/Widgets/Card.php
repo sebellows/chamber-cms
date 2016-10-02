@@ -11,11 +11,15 @@ class Card extends \WP_Widget {
 
     public function __construct()
     {
+        $this->widget_class = Helper::prefix('card_widget');
+        $this->widget_id    = Helper::slugify($this->widget_class);
+        $this->widget_name  = Helper::humanize($this->widget_class);
+
         $params = [
-            'classname'   => 'chamber_cardwidget',
+            'classname'   => $this->widget_class,
             'description' => 'A card-like display for calls-to-action.'
         ];
-        parent::__construct( 'chamber_card_widget', 'Chamber Card', $params );
+        parent::__construct( $this->widget_id, $this->widget_name, $params );
 
         add_action('admin_enqueue_scripts', [$this, 'upload_scripts']);
     }
@@ -146,6 +150,11 @@ class Card extends \WP_Widget {
         $instance['link']           = strip_tags( $new_instance['link'] );
         $instance['add_datepicker'] = isset( $new_instance['add_datepicker'] ) ? (bool) $new_instance['add_datepicker'] : false;
         return $instance;
+    }
+
+    public function flush()
+    {
+        wp_cache_delete( $this->widget_id, 'widget' );
     }
 
 }

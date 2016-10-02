@@ -2,43 +2,60 @@
 
 namespace Chamber\Widgets;
 
+use Chamber\Helper;
+
 /**
  * @see docs
  */
 class RecentPostsByPostType extends \WP_Widget {
 
-    public function __construct() {
+    public function addThumbnailSize($name, $width, $height)
+    {
+        return add_image_size( $name, $width, $height, $crop = false );
+    }
+
+    public function __construct()
+    {
+        $this->widget_class = Helper::prefix('recent_posts_by_post_type');
+        $this->widget_id    = Helper::slugify($this->widget_class);
+        $this->widget_name  = Helper::humanize($this->widget_class);
+
+        $widget_card_size   = $this->addThumbnailSize( 'widget_card', 480, 320 );
+
         $params = [
-            'classname'   => 'chamber_recent_posts_by_post_type',
-            'description' => 'Most recent custom Posts.'
+            'classname'   => $this->widget_class,
+            'description' => 'Most recent posts of your custom post types.'
         ];
-        parent::__construct( __NAMESPACE__.'\\RecentPostsByPostType', 'Chamber Recent Posts By Post Type', $params );
+        parent::__construct( $this->widget_id, $this->widget_name, $params );
     }
 
     // --------------------------------------------------------------
 
-    public function widget( $args, $instance ) {
+    public function widget( $args, $instance ) 
+    {
         if ( ! isset( $args['widget_id'] ) ) {
             $args['widget_id'] = $this->id;
         }
 
-        $title        = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
-        $posttype     = $instance['posttype'];
-        $number       = $instance['number'];
-        $show_thumb   = isset( $instance['show_thumb'] ) ? $instance['show_thumb'] : false;
-        $show_excerpt = isset( $instance['show_excerpt'] ) ? $instance['show_excerpt'] : false;
-        $show_date    = isset( $instance['show_date'] ) ? $instance['show_date'] : false;
+        $title              = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
+        $posttype           = $instance['posttype'];
+        $number             = $instance['number'];
+        $show_thumb         = isset( $instance['show_thumb'] ) ? $instance['show_thumb'] : false;
+        $show_excerpt       = isset( $instance['show_excerpt'] ) ? $instance['show_excerpt'] : false;
+        $show_date          = isset( $instance['show_date'] ) ? $instance['show_date'] : false;
+        $thumb_size_default = isset( $instance['thumb_size_default'] ) ? $instance['thumb_size_default'] : false;
+        $thumb_size_card    = isset( $instance['thumb_size_card'] ) ? $instance['thumb_size_card'] : false;
 
-        $post_types = get_post_types( array( 'public' => true ), 'objects' );
+        $post_types = get_post_types( [ 'public' => true ], 'objects' );
 
         if ( array_key_exists( $posttype, (array) $post_types ) ) {
-            $r = new WP_Query( apply_filters( 'widget_posts_args', array(
+            $r = new \WP_Query( apply_filters( 'widget_posts_args', [
                 'post_type' => $posttype,
                 'posts_per_page' => $number,
                 'no_found_rows' => true,
                 'post_status' => 'publish',
                 'ignore_sticky_posts' => true,
-            ) ) );
+            ] ) );
 
             if ( $r->have_posts() ) : ?>
                 <?php echo $args['before_widget']; ?>
@@ -50,7 +67,13 @@ class RecentPostsByPostType extends \WP_Widget {
                     <li>
                         <?php if ( $show_thumb && has_post_thumbnail() ) : ?>
                             <a class="widget-post-thumbnail" href="<?php the_permalink() ?>">
-                                <?php the_post_thumbnail( 'thumbnail', [ 'class' => 'alignleft' ]); ?>
+                            <?php 
+                                if ( $thumb_size_card ) {
+                                    the_post_thumbnail( 'widget_card_thumb' );
+                                } else {
+                                    the_post_thumbnail( 'thumbnail', [ 'class' => 'alignleft' ] );
+                                }
+                            ?>
                             </a>
                         <?php endif; ?>
 
@@ -93,13 +116,16 @@ class RecentPostsByPostType extends \WP_Widget {
 
     // --------------------------------------------------------------
 
-    public function form( $instance ) {
+    public function form( $instance ) 
+    {
         $title        = isset( $instance['title'] ) ? esc_attr( $instance['title'] ) : '';
         $posttype     = isset( $instance['posttype'] ) ? $instance['posttype']: 'post';
         $number       = isset( $instance['number'] ) ? absint( $instance['number'] ) : 5;
         $show_thumb   = isset( $instance['show_thumb'] ) ? (bool) $instance['show_thumb'] : false;
         $show_excerpt = isset( $instance['show_excerpt'] ) ? (bool) $instance['show_excerpt'] : false;
         $show_date    = isset( $instance['show_date'] ) ? (bool) $instance['show_date'] : false;
+        $thumb_size_default = isset( $instance['thumb_size_default'] ) ? (bool) $instance['thumb_size_default'] : true;
+        $thumb_size_card    = isset( $instance['thumb_size_card'] ) ? (bool) $instance['thumb_size_card'] : false;
 ?>
         <p><label for="<?php echo $this->get_field_id( 'title' ); ?>">Title:</label>
         <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>" /></p>
@@ -146,6 +172,18 @@ class RecentPostsByPostType extends \WP_Widget {
         </p>
 
         <p>
+            <label>
+                <input class="radio" type="radio" name="thumbnail" id="<?php echo $this->get_field_id( 'thumb_size_default' ); ?>" name="<?php echo $this->get_field_name( 'thumb_size_default' ); ?>" <?php checked( $thumb_size_default ); ?> />
+                150 × 150
+            </label>
+            &ensp;
+            <label>
+                <input class="radio" type="radio" name="thumbnail" id="<?php echo $this->get_field_id( 'thumb_size_card' ); ?>" name="<?php echo $this->get_field_name( 'thumb_size_card' ); ?>" <?php checked( $thumb_size_card ); ?> />
+                480 × 320
+            </label>
+        </p>
+
+        <p>
             <input class="checkbox" type="checkbox" id="<?php echo $this->get_field_id( 'show_excerpt' ); ?>" name="<?php echo $this->get_field_name( 'show_excerpt' ); ?>" <?php checked( $show_excerpt ); ?> />
             <label for="<?php echo $this->get_field_id( 'show_excerpt' ); ?>">Display post excerpt?</label>
         </p>
@@ -159,15 +197,24 @@ class RecentPostsByPostType extends \WP_Widget {
 
     // --------------------------------------------------------------
 
-    public function update( $new_instance, $old_instance ) {
-        $instance                 = $old_instance;
-        $instance['title']        = strip_tags( $new_instance['title'] );
-        $instance['posttype']     = strip_tags( $new_instance['posttype'] );
-        $instance['number']       = (int) $new_instance['number'];
-        $instance['show_thumb']   = isset( $new_instance['show_thumb'] ) ? (bool) $new_instance['show_thumb'] : false;
-        $instance['show_excerpt'] = isset( $new_instance['show_excerpt'] ) ? (bool) $new_instance['show_excerpt'] : false;
-        $instance['show_date']    = isset( $new_instance['show_date'] ) ? (bool) $new_instance['show_date'] : false;
+    public function update( $new_instance, $old_instance ) 
+    {
+        $instance                       = $old_instance;
+        $instance['title']              = strip_tags( $new_instance['title'] );
+        $instance['posttype']           = strip_tags( $new_instance['posttype'] );
+        $instance['number']             = (int) $new_instance['number'];
+        $instance['show_thumb']         = isset( $new_instance['show_thumb'] ) ? (bool) $new_instance['show_thumb'] : false;
+        $instance['show_excerpt']       = isset( $new_instance['show_excerpt'] ) ? (bool) $new_instance['show_excerpt'] : false;
+        $instance['show_date']          = isset( $new_instance['show_date'] ) ? (bool) $new_instance['show_date'] : false;
+        $instance['thumb_size_default'] = isset( $new_instance['thumb_size_default'] ) ? (bool) $new_instance['thumb_size_default'] : false;
+        $instance['thumb_size_card']    = isset( $new_instance['thumb_size_card'] ) ? (bool) $new_instance['thumb_size_card'] : false;
         return $instance;
     }
+
+    public function flush() 
+    {
+        wp_cache_delete( $this->widget_id, 'widget' );
+    }
+
 }
 
