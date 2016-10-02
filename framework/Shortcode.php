@@ -64,10 +64,12 @@ class Shortcode {
 
             $response = $this->app->call(
                 $callable,
-                array_merge([
-                    '_attributes' => $attributes,
-                    '_content'    => $content
-                ], $attributes)
+                //// @see https://github.com/getherbert/framework/pull/28/commits/fb73785645873065a43490cf92ebd4e488741052
+                // array_merge([
+                //     '_attributes' => $attributes,
+                //     '_content'    => $content
+                // ], $attributes)
+                $attributes
             );
 
             if ($response instanceof RedirectResponse)
