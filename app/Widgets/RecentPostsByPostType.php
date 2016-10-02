@@ -80,23 +80,27 @@ class RecentPostsByPostType extends \WP_Widget {
                             <a href="<?php the_permalink() ?>"><?php get_the_title() ? the_title() : the_ID(); ?></a>
                         </h4>
 
-                        <?php if ( $show_date && get_post_type() == 'event' ) :
-                            $event_date       = get_field('event_date');
-                            $event_start_time = get_field('event_start_time');
-                            $event_end_time   = get_field('event_end_time');
-                        ?>
-                        <time class="widget-post-meta">
-                            <span class="event-date">
-                                <span m-Icon="calendar small" aria-hidden>
-                                    <svg role="presentation"><use xlink:href="#icon-calendar" viewbox="0 0 24 24"></use></svg>
-                                </span> <?php echo $event_date; ?>
-                            </span> <!--
-                         --><span class="event-time">
-                                <span m-Icon="clock small" aria-hidden>
-                                    <svg role="presentation"><use xlink:href="#icon-clock" viewbox="0 0 24 24"></use></svg>
-                                </span> <?php echo $event_start_time; ?>–<?php echo $event_end_time; ?>
-                            </span>
-                        </time>
+                        <?php if ( $show_date ) : ?>
+                            <?php if (get_post_type() == 'event') :
+                                $event_date       = get_field('event_date');
+                                $event_start_time = get_field('event_start_time');
+                                $event_end_time   = get_field('event_end_time');
+                            ?>
+                            <time class="widget-post-meta">
+                                <span class="event-date">
+                                    <span m-Icon="calendar small" aria-hidden>
+                                        <svg role="presentation"><use xlink:href="#icon-calendar" viewbox="0 0 24 24"></use></svg>
+                                    </span> <?php echo $event_date; ?>
+                                </span> <!--
+                             --><span class="event-time">
+                                    <span m-Icon="clock small" aria-hidden>
+                                        <svg role="presentation"><use xlink:href="#icon-clock" viewbox="0 0 24 24"></use></svg>
+                                    </span> <?php echo $event_start_time; ?>–<?php echo $event_end_time; ?>
+                                </span>
+                            </time>
+                            <?php else : ?>
+                                <time class="widget-post-meta"><?php echo the_date(); ?></time>
+                            <?php endif; ?>
                         <?php endif; ?>
 
                         <?php if ( $show_excerpt && has_excerpt() ) : ?>
