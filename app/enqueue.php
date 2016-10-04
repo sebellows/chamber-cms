@@ -43,7 +43,7 @@ $enqueue->admin([
     'src' => Helper::assetUrl('/js/chamber-post.js'),
     'dep' => 'jquery',
     'filter' => [ 'hook' => 'post.php' ],
-    'localize' => [ 'icons_url' => Helper::assetUrl('/icons/symbol-defs.svg') ]
+    'localize' => [ 'icons_url' => Helper::assetUrl('/icons/chamber-sprite.svg') ]
 ], 'footer');
 
 /*
@@ -58,6 +58,13 @@ $enqueue->admin([
     'src' => Helper::assetUrl('/css/chamber-panel.css'),
     'filter' => [ 'panel' => '*' ],
 ]);
+
+$enqueue->admin([
+    'as' => 'widgetJS',
+    'src' => Helper::assetUrl('/js/chamber-widgets.js'),
+    'dep' => 'jquery',
+    'filter' => [ 'hook' => 'widgets.php' ],
+], 'footer');
 
 // $enqueue->admin([
 //     'as' => 'acfRCPOptions',

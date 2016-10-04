@@ -78,10 +78,9 @@
         style:    'position: relative',
          html:    '<div class="selector">' +
                     '<span class="selected-icon">' +
-                      '<svg class="chamber-icon-up-dir" viewbox="0 0 32 32"><use xlink:href="#icon-arrow-up" /></svg>' +
                     '</span>' +
                     '<span class="selector-button">' +
-                      '<svg class="chamber-icon-down-dir" viewbox="0 0 32 32"><use xlink:href="#icon-arrow-down" /></svg>' +
+                      '<span class="triangle"></span>' +
                     '</span>' +
                    '</div>' +
                    '<div class="selector-popup" style="display: none;">' + ((this.settings.hasSearch) ?
@@ -746,8 +745,8 @@
     toggleIconSelector: function () {
       this.open = (!this.open) ? 1 : 0;
       this.iconPicker.find('.selector-popup').slideToggle(300);
-      this.iconPicker.find('.selector-button svg').toggleClass('chamber-icon-down-dir');
-      this.iconPicker.find('.selector-button svg').toggleClass('chamber-icon-up-dir');
+      this.iconPicker.find('.selector').toggleClass('popup-is-visible');
+      // this.iconPicker.find('.selector-button .triangle').toggleClass('popup-is-hidden');
       if (this.open) {
         this.iconPicker.find('.icons-search-input').focus().select();
       }

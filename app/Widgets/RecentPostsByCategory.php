@@ -7,7 +7,8 @@ use Chamber\Helper;
 /**
  * @see docs
  */
-class RecentPostsByCategory extends \WP_Widget {
+class RecentPostsByCategory extends \WP_Widget
+{
 
     public $widget_id;  // identifier of this widget for WP
 

@@ -110,3 +110,5 @@ foreach ($iterator as $directory)
  */
 $oni->boot();
 
+// $plugin = new \Oni\Framework\Plugin(__DIR__ . '/../');
+// dd($plugin->setContainer($oni)->getContainer());

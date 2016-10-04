@@ -31,10 +31,28 @@
     cursor: pointer;
     float: left;
     border-left: 1px solid #ededed; }
+      .selector-button .triangle {
+        border-color: #555 transparent transparent transparent;
+        border-style: solid;
+        border-width: 6px 6px 0 6px;
+        display: inline-block;
+        margin-top: 17px;
+        width: 0; height: 0;
+      }
+      .popup-is-visible .selector-button .triangle {
+        border-color: transparent transparent #555 transparent;
+        border-style: solid;
+        border-width: 0 6px 6px 6px;
+        display: inline-block;
+        margin-top: 17px;
+        width: 0; height: 0;
+      }
     .icons-selector .selector-button:hover {
       background-color: #f6f6f6; }
-    .icons-selector .selector-button:hover svg {
-      fill: #AAA; }
+    .selector-button:hover .triangle {
+      border-color: #999 transparent transparent transparent; }
+    .popup-is-visible .selector-button:hover .triangle {
+      border-color: transparent transparent #999 transparent; }
     .icons-selector .selector-button svg {
       width: 20px;
       height: 20px;

@@ -1,552 +1,731 @@
 {
-  "name": "",
   "prefix": "icon-",
-  "emSize": 1024,
   "icons": [
     {
-      "order": 21,
-      "name": "eye",
-      "code": 57344
-    },
-    {
-      "order": 22,
-      "name": "paper-clip",
-      "code": 57345
-    },
-    {
-      "order": 23,
-      "name": "mail",
-      "code": 57346
-    },
-    {
-      "order": 112,
-      "name": "toggle",
-      "code": 57347
-    },
-    {
-      "order": 97,
-      "name": "layout",
-      "code": 57348
-    },
-    {
-      "order": 24,
-      "name": "link",
-      "code": 57349
-    },
-    {
-      "order": 25,
-      "name": "bell",
-      "code": 57350
-    },
-    {
-      "order": 26,
-      "name": "lock",
-      "code": 57351
-    },
-    {
-      "order": 27,
-      "name": "unlock",
-      "code": 57352
-    },
-    {
-      "order": 28,
-      "name": "ribbon",
-      "code": 57353
-    },
-    {
-      "order": 29,
-      "name": "image",
-      "code": 57360
-    },
-    {
-      "order": 30,
-      "name": "signal",
-      "code": 57361
-    },
-    {
-      "order": 32,
-      "name": "clipboard",
-      "code": 57363
-    },
-    {
-      "order": 31,
-      "name": "clock",
-      "code": 57364
-    },
-    {
-      "order": 111,
-      "name": "air-play",
-      "code": 57366
-    },
-    {
-      "order": 33,
-      "name": "camera",
-      "code": 57367
-    },
-    {
-      "order": 34,
-      "name": "video",
-      "code": 57368
-    },
-    {
-      "order": 35,
-      "name": "printer",
-      "code": 57376
-    },
-    {
-      "order": 36,
-      "name": "monitor",
-      "code": 57377
-    },
-    {
-      "order": 37,
-      "name": "server",
-      "code": 57378
-    },
-    {
-      "order": 38,
-      "name": "cog",
-      "code": 57379
-    },
-    {
-      "order": 39,
-      "name": "heart",
-      "code": 57380
-    },
-    {
-      "order": 40,
-      "name": "paragraph",
-      "code": 57381
-    },
-    {
-      "order": 77,
-      "name": "align-justify",
-      "code": 57382
-    },
-    {
-      "order": 108,
-      "name": "align-left",
-      "code": 57383
-    },
-    {
-      "order": 109,
-      "name": "align-center",
-      "code": 57384
-    },
-    {
-      "order": 110,
-      "name": "align-right",
-      "code": 57385
-    },
-    {
-      "order": 41,
-      "name": "book",
-      "code": 57392
-    },
-    {
-      "order": 107,
-      "name": "layers",
-      "code": 57393
-    },
-    {
-      "order": 42,
-      "name": "stack",
-      "code": 57394
-    },
-    {
-      "order": 43,
-      "name": "stack-2",
-      "code": 57395
-    },
-    {
-      "order": 44,
-      "name": "paper",
-      "code": 57396
-    },
-    {
-      "order": 45,
-      "name": "paper-stack",
-      "code": 57397
-    },
-    {
-      "order": 16,
-      "name": "search",
-      "code": 57398
-    },
-    {
-      "order": 17,
-      "name": "zoom-in",
-      "code": 57399
-    },
-    {
-      "order": 18,
-      "name": "zoom-out",
-      "code": 57400
-    },
-    {
-      "order": 46,
-      "name": "reply",
-      "code": 57401
-    },
-    {
-      "order": 47,
-      "name": "circle-plus",
-      "code": 57408
-    },
-    {
-      "order": 48,
-      "name": "circle-minus",
-      "code": 57409
-    },
-    {
-      "order": 49,
-      "name": "circle-check",
-      "code": 57410
-    },
-    {
-      "order": 50,
-      "name": "circle-cross",
-      "code": 57411
-    },
-    {
-      "order": 51,
-      "name": "square-plus",
-      "code": 57412
-    },
-    {
-      "order": 52,
-      "name": "square-minus",
-      "code": 57413
-    },
-    {
-      "order": 53,
-      "name": "square-check",
-      "code": 57414
-    },
-    {
-      "order": 54,
-      "name": "square-cross",
-      "code": 57415
-    },
-    {
-      "order": 55,
-      "name": "microphone",
-      "code": 57416
-    },
-    {
-      "order": 19,
-      "name": "rewind",
-      "code": 57425
-    },
-    {
-      "order": 14,
-      "name": "play",
-      "code": 57426
-    },
-    {
-      "order": 20,
-      "name": "fast-forward",
-      "code": 57429
-    },
-    {
-      "order": 61,
-      "name": "repeat",
-      "code": 57432
-    },
-    {
-      "order": 60,
-      "name": "folder",
-      "code": 57433
-    },
-    {
-      "order": 58,
-      "name": "umbrella",
-      "code": 57440
-    },
-    {
-      "order": 98,
-      "name": "moon",
-      "code": 57441
-    },
-    {
-      "order": 57,
-      "name": "thermometer",
-      "code": 57442
-    },
-    {
-      "order": 59,
-      "name": "drop",
-      "code": 57443
-    },
-    {
-      "order": 56,
-      "name": "sun",
-      "code": 57444
-    },
-    {
-      "order": 62,
-      "name": "cloud",
-      "code": 57445
-    },
-    {
-      "order": 95,
-      "name": "cloud-upload",
-      "code": 57446
-    },
-    {
-      "order": 96,
-      "name": "cloud-download",
-      "code": 57447
-    },
-    {
-      "order": 63,
-      "name": "upload",
-      "code": 57448
-    },
-    {
-      "order": 4,
-      "name": "download",
-      "code": 57449
-    },
-    {
-      "order": 64,
-      "name": "location",
-      "code": 57456
-    },
-    {
-      "order": 65,
-      "name": "map",
-      "code": 57458
-    },
-    {
-      "order": 66,
-      "name": "head",
-      "code": 57460
-    },
-    {
-      "order": 67,
-      "name": "briefcase",
-      "code": 57461
-    },
-    {
-      "order": 13,
-      "name": "speech-bubble",
-      "code": 57462
-    },
-    {
-      "order": 68,
-      "name": "anchor",
-      "code": 57463
-    },
-    {
-      "order": 72,
-      "name": "globe",
-      "code": 57464
-    },
-    {
-      "order": 94,
-      "name": "box",
-      "code": 57465
-    },
-    {
-      "order": 106,
-      "name": "reload",
-      "code": 57472
-    },
-    {
-      "order": 12,
-      "name": "share",
-      "code": 57473
-    },
-    {
-      "order": 71,
-      "name": "tag",
-      "code": 57477
-    },
-    {
-      "order": 70,
-      "name": "power",
-      "code": 57478
-    },
-    {
-      "order": 69,
-      "name": "bar-graph",
-      "code": 57488
-    },
-    {
-      "order": 73,
-      "name": "bar-graph-2",
-      "code": 57489
-    },
-    {
-      "order": 74,
-      "name": "pie-graph",
-      "code": 57490
-    },
-    {
-      "order": 7,
-      "name": "star",
-      "code": 57491
-    },
-    {
-      "order": 8,
-      "name": "arrow-left",
-      "code": 57492
-    },
-    {
-      "order": 9,
-      "name": "arrow-right",
-      "code": 57493
-    },
-    {
-      "order": 10,
-      "name": "arrow-up",
-      "code": 57494
-    },
-    {
-      "order": 11,
-      "name": "arrow-down",
-      "code": 57495
-    },
-    {
-      "order": 103,
-      "name": "volume",
-      "code": 57496
-    },
-    {
-      "order": 102,
-      "name": "mute",
-      "code": 57497
-    },
-    {
-      "order": 101,
-      "name": "content-right",
-      "code": 57600
-    },
-    {
-      "order": 100,
-      "name": "content-left",
-      "code": 57601
-    },
-    {
-      "order": 76,
-      "name": "grid",
-      "code": 57602
-    },
-    {
-      "order": 99,
-      "name": "grid-2",
-      "code": 57603
-    },
-    {
-      "order": 105,
-      "name": "columns",
-      "code": 57604
-    },
-    {
-      "order": 78,
-      "name": "bag",
-      "code": 57606
-    },
-    {
-      "order": 79,
-      "name": "ban",
-      "code": 57607
-    },
-    {
-      "order": 80,
-      "name": "flag",
-      "code": 57608
-    },
-    {
-      "order": 81,
-      "name": "trash",
-      "code": 57609
-    },
-    {
-      "order": 82,
-      "name": "maximize",
-      "code": 57618
-    },
-    {
-      "order": 83,
-      "name": "minimize",
-      "code": 57619
+      "order": 2,
+      "id": 120,
+      "name": "accessibility",
+      "prevSize": 32
     },
     {
       "order": 3,
-      "name": "plus",
-      "code": 57620
+      "id": 119,
+      "name": "alarm",
+      "prevSize": 32
     },
     {
-      "order": 84,
-      "name": "minus",
-      "code": 57621
-    },
-    {
-      "order": 85,
-      "name": "check",
-      "code": 57622
-    },
-    {
-      "order": 6,
-      "name": "cross",
-      "code": 57623
-    },
-    {
-      "order": 86,
-      "name": "move",
-      "code": 57624
-    },
-    {
-      "order": 93,
-      "name": "delete",
-      "code": 57625
-    },
-    {
-      "order": 92,
-      "name": "menu",
-      "code": 57632
-    },
-    {
-      "order": 104,
+      "order": 4,
+      "id": 118,
       "name": "archive",
-      "code": 57633
-    },
-    {
-      "order": 2,
-      "name": "inbox",
-      "code": 57634
-    },
-    {
-      "order": 87,
-      "name": "outbox",
-      "code": 57635
-    },
-    {
-      "order": 88,
-      "name": "file",
-      "code": 57636
-    },
-    {
-      "order": 89,
-      "name": "file-add",
-      "code": 57637
-    },
-    {
-      "order": 90,
-      "name": "file-subtract",
-      "code": 57638
+      "prevSize": 32
     },
     {
       "order": 5,
-      "name": "open",
-      "code": 57640
+      "id": 117,
+      "name": "arrow-circle-left",
+      "prevSize": 32
+    },
+    {
+      "order": 6,
+      "id": 116,
+      "name": "arrow-circle-right",
+      "prevSize": 32
+    },
+    {
+      "order": 7,
+      "id": 115,
+      "name": "arrow-left",
+      "prevSize": 32
+    },
+    {
+      "order": 8,
+      "id": 114,
+      "name": "arrow-right",
+      "prevSize": 32
+    },
+    {
+      "order": 9,
+      "id": 113,
+      "name": "arrow-wide-left",
+      "prevSize": 32
+    },
+    {
+      "order": 10,
+      "id": 112,
+      "name": "arrow-wide-right",
+      "prevSize": 32
+    },
+    {
+      "order": 11,
+      "id": 111,
+      "name": "arrows",
+      "prevSize": 32
+    },
+    {
+      "order": 12,
+      "id": 110,
+      "name": "art",
+      "prevSize": 32
+    },
+    {
+      "order": 13,
+      "id": 109,
+      "name": "article",
+      "prevSize": 32
+    },
+    {
+      "order": 14,
+      "id": 108,
+      "name": "attachment",
+      "prevSize": 32
+    },
+    {
+      "order": 15,
+      "id": 107,
+      "name": "balance",
+      "prevSize": 32
+    },
+    {
+      "order": 16,
+      "id": 106,
+      "name": "ban",
+      "prevSize": 32
+    },
+    {
+      "order": 17,
+      "id": 105,
+      "name": "basket",
+      "prevSize": 32
+    },
+    {
+      "order": 18,
+      "id": 104,
+      "name": "bike",
+      "prevSize": 32
+    },
+    {
+      "order": 19,
+      "id": 103,
+      "name": "blue-ribbon",
+      "prevSize": 32
+    },
+    {
+      "order": 20,
+      "id": 102,
+      "name": "book",
+      "prevSize": 32
+    },
+    {
+      "order": 21,
+      "id": 101,
+      "name": "briefcase",
+      "prevSize": 32
+    },
+    {
+      "order": 22,
+      "id": 100,
+      "name": "buildings",
+      "prevSize": 32
+    },
+    {
+      "order": 23,
+      "id": 99,
+      "name": "bullet-list",
+      "prevSize": 32
+    },
+    {
+      "order": 24,
+      "id": 98,
+      "name": "bullhorn",
+      "prevSize": 32
+    },
+    {
+      "order": 25,
+      "id": 97,
+      "name": "calculator",
+      "prevSize": 32
+    },
+    {
+      "order": 26,
+      "id": 96,
+      "name": "calendar",
+      "prevSize": 32
+    },
+    {
+      "order": 27,
+      "id": 95,
+      "name": "camera",
+      "prevSize": 32
+    },
+    {
+      "order": 28,
+      "id": 94,
+      "name": "chat",
+      "prevSize": 32
+    },
+    {
+      "order": 29,
+      "id": 93,
+      "name": "check",
+      "prevSize": 32
+    },
+    {
+      "order": 30,
+      "id": 92,
+      "name": "checkbox",
+      "prevSize": 32
+    },
+    {
+      "order": 31,
+      "id": 91,
+      "name": "chevron-left",
+      "prevSize": 32
+    },
+    {
+      "order": 32,
+      "id": 90,
+      "name": "chevron-right",
+      "prevSize": 32
+    },
+    {
+      "order": 33,
+      "id": 89,
+      "name": "clock",
+      "prevSize": 32
+    },
+    {
+      "order": 34,
+      "id": 88,
+      "name": "close-circle",
+      "prevSize": 32
+    },
+    {
+      "order": 35,
+      "id": 87,
+      "name": "close",
+      "prevSize": 32
+    },
+    {
+      "order": 36,
+      "id": 86,
+      "name": "cloud-download",
+      "prevSize": 32
+    },
+    {
+      "order": 37,
+      "id": 85,
+      "name": "cloud-upload",
+      "prevSize": 32
+    },
+    {
+      "order": 38,
+      "id": 84,
+      "name": "cloud",
+      "prevSize": 32
+    },
+    {
+      "order": 39,
+      "id": 83,
+      "name": "cocktail",
+      "prevSize": 32
+    },
+    {
+      "order": 40,
+      "id": 82,
+      "name": "coffee",
+      "prevSize": 32
+    },
+    {
+      "order": 41,
+      "id": 81,
+      "name": "contact",
+      "prevSize": 32
+    },
+    {
+      "order": 42,
+      "id": 80,
+      "name": "credit-card",
+      "prevSize": 32
+    },
+    {
+      "order": 43,
+      "id": 79,
+      "name": "desktop-computer",
+      "prevSize": 32
+    },
+    {
+      "order": 44,
+      "id": 78,
+      "name": "directions",
+      "prevSize": 32
+    },
+    {
+      "order": 45,
+      "id": 77,
+      "name": "directory",
+      "prevSize": 32
+    },
+    {
+      "order": 46,
+      "id": 76,
+      "name": "document",
+      "prevSize": 32
+    },
+    {
+      "order": 47,
+      "id": 75,
+      "name": "dollar",
+      "prevSize": 32
+    },
+    {
+      "order": 48,
+      "id": 74,
+      "name": "double-angle-left",
+      "prevSize": 32
+    },
+    {
+      "order": 49,
+      "id": 73,
+      "name": "double-angle-right",
+      "prevSize": 32
+    },
+    {
+      "order": 50,
+      "id": 72,
+      "name": "download",
+      "prevSize": 32
+    },
+    {
+      "order": 51,
+      "id": 71,
+      "name": "drag",
+      "prevSize": 32
+    },
+    {
+      "order": 52,
+      "id": 70,
+      "name": "ellipsis",
+      "prevSize": 32
+    },
+    {
+      "order": 53,
+      "id": 69,
+      "name": "email",
+      "prevSize": 32
+    },
+    {
+      "order": 54,
+      "id": 68,
+      "name": "experimental",
+      "prevSize": 32
+    },
+    {
+      "order": 55,
+      "id": 67,
+      "name": "family",
+      "prevSize": 32
+    },
+    {
+      "order": 56,
+      "id": 66,
+      "name": "fat-arrow",
+      "prevSize": 32
+    },
+    {
+      "order": 57,
+      "id": 65,
+      "name": "fill-in",
+      "prevSize": 32
+    },
+    {
+      "order": 58,
+      "id": 64,
+      "name": "flag",
+      "prevSize": 32
+    },
+    {
+      "order": 59,
+      "id": 63,
+      "name": "folder",
+      "prevSize": 32
+    },
+    {
+      "order": 60,
+      "id": 62,
+      "name": "free",
+      "prevSize": 32
+    },
+    {
+      "order": 61,
+      "id": 61,
+      "name": "gear",
+      "prevSize": 32
+    },
+    {
+      "order": 62,
+      "id": 60,
+      "name": "gift",
+      "prevSize": 32
+    },
+    {
+      "order": 63,
+      "id": 59,
+      "name": "graduation-cap",
+      "prevSize": 32
+    },
+    {
+      "order": 64,
+      "id": 58,
+      "name": "grid",
+      "prevSize": 32
+    },
+    {
+      "order": 65,
+      "id": 57,
+      "name": "group",
+      "prevSize": 32
+    },
+    {
+      "order": 66,
+      "id": 56,
+      "name": "heart",
+      "prevSize": 32
+    },
+    {
+      "order": 67,
+      "id": 55,
+      "name": "home",
+      "prevSize": 32
+    },
+    {
+      "order": 68,
+      "id": 54,
+      "name": "idea",
+      "prevSize": 32
+    },
+    {
+      "order": 69,
+      "id": 53,
+      "name": "incoming",
+      "prevSize": 32
+    },
+    {
+      "order": 70,
+      "id": 52,
+      "name": "institution",
+      "prevSize": 32
+    },
+    {
+      "order": 71,
+      "id": 51,
+      "name": "join",
+      "prevSize": 32
+    },
+    {
+      "order": 72,
+      "id": 50,
+      "name": "link",
+      "prevSize": 32
+    },
+    {
+      "order": 73,
+      "id": 49,
+      "name": "location",
+      "prevSize": 32
+    },
+    {
+      "order": 74,
+      "id": 48,
+      "name": "locked",
+      "prevSize": 32
+    },
+    {
+      "order": 75,
+      "id": 47,
+      "name": "map",
+      "prevSize": 32
+    },
+    {
+      "order": 76,
+      "id": 46,
+      "name": "marker",
+      "prevSize": 32
+    },
+    {
+      "order": 77,
+      "id": 45,
+      "name": "menu",
+      "prevSize": 32
+    },
+    {
+      "order": 78,
+      "id": 44,
+      "name": "microphone",
+      "prevSize": 32
+    },
+    {
+      "order": 79,
+      "id": 43,
+      "name": "minus-circle",
+      "prevSize": 32
+    },
+    {
+      "order": 80,
+      "id": 42,
+      "name": "moon",
+      "prevSize": 32
+    },
+    {
+      "order": 81,
+      "id": 41,
+      "name": "network",
+      "prevSize": 32
+    },
+    {
+      "order": 82,
+      "id": 40,
+      "name": "new-window",
+      "prevSize": 32
+    },
+    {
+      "order": 83,
+      "id": 39,
+      "name": "outgoing",
+      "prevSize": 32
+    },
+    {
+      "order": 84,
+      "id": 38,
+      "name": "paragraph",
+      "prevSize": 32
+    },
+    {
+      "order": 85,
+      "id": 37,
+      "name": "paw-print",
+      "prevSize": 32
+    },
+    {
+      "order": 86,
+      "id": 36,
+      "name": "person",
+      "prevSize": 32
+    },
+    {
+      "order": 87,
+      "id": 35,
+      "name": "phone",
+      "prevSize": 32
+    },
+    {
+      "order": 88,
+      "id": 34,
+      "name": "photo",
+      "prevSize": 32
+    },
+    {
+      "order": 89,
+      "id": 33,
+      "name": "plus-circle",
+      "prevSize": 32
+    },
+    {
+      "order": 90,
+      "id": 32,
+      "name": "plus-square",
+      "prevSize": 32
     },
     {
       "order": 91,
-      "name": "ellipsis",
-      "code": 57641
+      "id": 31,
+      "name": "print",
+      "prevSize": 32
+    },
+    {
+      "order": 92,
+      "id": 30,
+      "name": "protection",
+      "prevSize": 32
+    },
+    {
+      "order": 93,
+      "id": 29,
+      "name": "quote",
+      "prevSize": 32
+    },
+    {
+      "order": 94,
+      "id": 28,
+      "name": "save",
+      "prevSize": 32
+    },
+    {
+      "order": 95,
+      "id": 27,
+      "name": "search",
+      "prevSize": 32
+    },
+    {
+      "order": 96,
+      "id": 26,
+      "name": "share",
+      "prevSize": 32
+    },
+    {
+      "order": 97,
+      "id": 25,
+      "name": "shopping-bag",
+      "prevSize": 32
+    },
+    {
+      "order": 98,
+      "id": 24,
+      "name": "shopping-cart",
+      "prevSize": 32
+    },
+    {
+      "order": 99,
+      "id": 23,
+      "name": "small-business",
+      "prevSize": 32
+    },
+    {
+      "order": 100,
+      "id": 22,
+      "name": "smart-phone",
+      "prevSize": 32
+    },
+    {
+      "order": 101,
+      "id": 21,
+      "name": "star",
+      "prevSize": 32
+    },
+    {
+      "order": 102,
+      "id": 20,
+      "name": "sun",
+      "prevSize": 32
+    },
+    {
+      "order": 103,
+      "id": 19,
+      "name": "tag",
+      "prevSize": 32
+    },
+    {
+      "order": 104,
+      "id": 18,
+      "name": "target",
+      "prevSize": 32
+    },
+    {
+      "order": 105,
+      "id": 17,
+      "name": "temperature",
+      "prevSize": 32
+    },
+    {
+      "order": 106,
+      "id": 16,
+      "name": "thumbsup",
+      "prevSize": 32
+    },
+    {
+      "order": 107,
+      "id": 15,
+      "name": "ticket",
+      "prevSize": 32
+    },
+    {
+      "order": 108,
+      "id": 14,
+      "name": "trash",
+      "prevSize": 32
+    },
+    {
+      "order": 109,
+      "id": 13,
+      "name": "tree",
+      "prevSize": 32
+    },
+    {
+      "order": 110,
+      "id": 12,
+      "name": "trending-up-chart",
+      "prevSize": 32
+    },
+    {
+      "order": 111,
+      "id": 11,
+      "name": "trending-up",
+      "prevSize": 32
+    },
+    {
+      "order": 112,
+      "id": 10,
+      "name": "trophy",
+      "prevSize": 32
+    },
+    {
+      "order": 113,
+      "id": 9,
+      "name": "umbrella",
+      "prevSize": 32
+    },
+    {
+      "order": 114,
+      "id": 8,
+      "name": "undo_1",
+      "prevSize": 32
+    },
+    {
+      "order": 115,
+      "id": 7,
+      "name": "undo",
+      "prevSize": 32
+    },
+    {
+      "order": 116,
+      "id": 6,
+      "name": "unlocked",
+      "prevSize": 32
+    },
+    {
+      "order": 117,
+      "id": 5,
+      "name": "upload",
+      "prevSize": 32
+    },
+    {
+      "order": 118,
+      "id": 4,
+      "name": "video",
+      "prevSize": 32
+    },
+    {
+      "order": 119,
+      "id": 3,
+      "name": "visible",
+      "prevSize": 32
+    },
+    {
+      "order": 120,
+      "id": 2,
+      "name": "year-round",
+      "prevSize": 32
+    },
+    {
+      "order": 121,
+      "id": 1,
+      "name": "zoom-in",
+      "prevSize": 32
+    },
+    {
+      "order": 122,
+      "id": 0,
+      "name": "zoom-out",
+      "prevSize": 32
     }
   ]
 }
