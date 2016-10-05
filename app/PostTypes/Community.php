@@ -25,7 +25,7 @@ class Community
                 'show_in_menu' => FALSE,
                 'show_in_rest' => TRUE,
                 'rewrite'      => [ 'with_front' => FALSE ],
-                'has_archive'  => TRUE
+                'has_archive'  => 'communities'
             ]
         );
     } 
