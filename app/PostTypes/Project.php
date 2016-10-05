@@ -15,7 +15,7 @@ class Project
     {
         $project = new PostType(
             [
-                'name'     => 'Project',
+                'name'     => 'Projects',
                 'singular' => 'Project',
                 'plural'   => 'Projects',
                 'slug'     => 'projects'

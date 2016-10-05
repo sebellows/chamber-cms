@@ -14,12 +14,7 @@ class Testimonial
     public function __construct()
     {
         $testimonial = new PostType(
-            [
-                'name'     => 'Testimonials',
-                'singular' => 'Testimonial',
-                'plural'   => 'Testimonials',
-                'slug'     => 'testimonials'
-            ],
+            'testimonial',
             [
                 'supports'     => [ 'title', 'editor', 'excerpt', 'thumbnail' ],
                 'show_in_menu' => FALSE,
@@ -38,5 +33,5 @@ class Testimonial
             'cb'         => '<input type="checkbox" />',
             'title'      => __('Title')
         ]);
-    } 
+    }
 }
