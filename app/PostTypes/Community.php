@@ -24,12 +24,14 @@ class Community
                 'supports'     => [ 'title', 'editor', 'excerpt', 'thumbnail' ],
                 'show_in_menu' => FALSE,
                 'show_in_rest' => TRUE,
-                'rewrite'      => [
-                    'slug'       => 'communities',
-                    'with_front' => FALSE
-                ],
+                'rewrite'      => [ 'with_front' => FALSE ],
                 'has_archive'  => 'communities'
             ]
         );
+
+        $community->columns()->set([
+            'cb'         => '<input type="checkbox" />',
+            'title'      => __('Title')
+        ]);
     } 
 }
