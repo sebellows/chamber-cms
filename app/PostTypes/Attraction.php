@@ -19,14 +19,9 @@ class Attraction
                 'supports'     => [ 'title', 'editor', 'excerpt', 'thumbnail', 'revisions' ],
                 'show_in_menu' => FALSE,
                 'show_in_rest' => TRUE,
-                'taxonomies'   => ['attraction_category'],
-                'rewrite'      => [
-                    'with_front' => FALSE,
-                    'pages'      => TRUE,
-                    'feeds'      => TRUE,
-                    'ep_mask'    => EP_PERMALINK
-                ],
-                'has_archive'  => TRUE
+                'taxonomies'   => [ 'attraction_category' ],
+                'rewrite'      => [ 'with_front' => FALSE ],
+                'has_archive'  => 'attractions'
             ]
         );
 
