@@ -24,7 +24,10 @@ class Community
                 'supports'     => [ 'title', 'editor', 'excerpt', 'thumbnail' ],
                 'show_in_menu' => FALSE,
                 'show_in_rest' => TRUE,
-                'rewrite'      => [ 'with_front' => FALSE ],
+                'rewrite'      => [
+                    'slug'       => 'communities',
+                    'with_front' => FALSE
+                ],
                 'has_archive'  => 'communities'
             ]
         );
