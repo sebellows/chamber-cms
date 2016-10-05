@@ -70,7 +70,7 @@ $enqueue->admin([
 */
 $enqueue->front([
     'as' => 'googlemaps',
-    'src' => '//maps.googleapis.com/maps/api/js?key=AIzaSyAq5p4b7K-qhSlhT-QTckh_qLE8RiYrZdo',
+    'src' => '//maps.googleapis.com/maps/api/js?key=AIzaSyAS0yll51lLq5yVbqysc6gtKExyIKdURzE',
     'dep' => 'jquery',
     'filter' => [ 'postType' => 'attractions' ],
 ], 'footer');
