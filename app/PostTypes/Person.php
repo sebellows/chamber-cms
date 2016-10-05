@@ -7,13 +7,13 @@ use PostTypes\PostType;
 /**
  * People
  * 
- * @var PostTypes\PostType
+ * @var \PostTypes\PostType
  */
 class Person
 {
     public function __construct()
     {
-        $people = new PostType(
+        $person = new PostType(
             [
                 'name'     => 'People',
                 'singular' => 'Person',
@@ -34,20 +34,25 @@ class Person
             ]
         );
 
-        $people->taxonomy(
+        $person->taxonomy(
             'department',
             [
-                'show_ui'      => FALSE,
+                'show_ui'           => TRUE,
+                'show_admin_column' => TRUE,
+                'show_ui'           => TRUE,
+                'show_admin_column' => TRUE,
                 'capabilities' => [
-                    'manage_terms' => 'manage_custom_taxonomies',
-                    'edit_terms'   => 'manage_custom_taxonomies',
-                    'delete_terms' => 'manage_custom_taxonomies',
-                    'assign_terms' => 'manage_custom_taxonomies',
-                ]
+                    'manage_terms' => 'manage_categories',
+                    'edit_terms'   => 'manage_categories',
+                    'delete_terms' => 'manage_categories',
+                    'assign_terms' => 'manage_categories'
+                ],
+                'query_var'    => TRUE,
+                'hierarchical' => TRUE
             ]
         );
 
-        $people->columns()->set([
+        $person->columns()->set([
             'cb'         => '<input type="checkbox" />',
             'title'      => __('Title'),
             'department' => __('Department')

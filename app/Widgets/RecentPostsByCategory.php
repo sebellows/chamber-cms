@@ -71,10 +71,13 @@ class RecentPostsByCategory extends \WP_Widget
                             <?php the_post_thumbnail( 'thumbnail', [ 'class' => 'alignleft' ]); ?>
                         </a>
                     <?php endif; ?>
-                    <h4><a href="<?php the_permalink() ?>"><?php get_the_title() ? the_title() : the_ID(); ?></a></h4>
+
                     <?php if ( $show_date ) : ?>
                         <time class="widget-post-meta"><?php the_date(); ?></time>
                     <?php endif; ?>
+
+                    <h4><a href="<?php the_permalink() ?>"><?php get_the_title() ? the_title() : the_ID(); ?></a></h4>
+
                     <?php if ( $show_excerpt && has_excerpt() ) : ?>
                         <?php the_excerpt(); ?>
                     <?php endif; ?>

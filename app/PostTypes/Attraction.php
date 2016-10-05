@@ -7,7 +7,7 @@ use PostTypes\PostType;
 /**
  * Attraction
  * 
- * @var CPT
+ * @var \PostTypes\PostType
  */
 class Attraction
 {

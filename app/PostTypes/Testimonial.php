@@ -7,13 +7,13 @@ use PostTypes\PostType;
 /**
  * Testimonials
  * 
- * @var PostTypes\PostType
+ * @var \PostTypes\PostType
  */
 class Testimonial
 {
     public function __construct()
     {
-        $testimonials = new PostType(
+        $testimonial = new PostType(
             [
                 'name'     => 'Testimonials',
                 'singular' => 'Testimonial',
@@ -21,11 +21,7 @@ class Testimonial
                 'slug'     => 'testimonials'
             ],
             [
-                'supports'     => [
-                    'title',
-                    'editor',
-                    'thumbnail'
-                ],
+                'supports'     => [ 'title', 'editor', 'excerpt', 'thumbnail' ],
                 'show_in_menu' => FALSE,
                 'show_in_rest' => TRUE,
                 'rewrite'      => [
@@ -33,11 +29,12 @@ class Testimonial
                     'pages'      => TRUE,
                     'feeds'      => TRUE,
                     'ep_mask'    => EP_PERMALINK
-                ]
+                ],
+                'has_archive'  => TRUE
             ]
         );
 
-        $testimonials->columns()->set([
+        $testimonial->columns()->set([
             'cb'         => '<input type="checkbox" />',
             'title'      => __('Title')
         ]);

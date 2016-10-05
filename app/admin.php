@@ -13,8 +13,11 @@ function chamber_add_options_sub_page($parent_file) {
 	 */
 	$chamber_custom_posttypes = [
 		'attraction',
+		'business',
+		'community',
 		'person',
 		'project',
+		'testimonial'
 	];
 
 	/**
@@ -24,6 +27,8 @@ function chamber_add_options_sub_page($parent_file) {
 	 */
 	$chamber_taxonomies = [
 		'attraction_category',
+		'business_type',
+		'department'
 	];
 
 	foreach( $chamber_custom_posttypes as $chamber_custom_posttype ) {

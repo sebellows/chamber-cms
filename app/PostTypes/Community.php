@@ -7,13 +7,13 @@ use PostTypes\PostType;
 /**
  * Communities
  * 
- * @var PostTypes\PostType
+ * @var \PostTypes\PostType
  */
 class Community
 {
     public function __construct()
     {
-        $communities = new PostType(
+        $community = new PostType(
             [
                 'name'     => 'Communities',
                 'singular' => 'Community',
@@ -21,36 +21,17 @@ class Community
                 'slug'     => 'communities'
             ],
             [
-                'supports'     => [ 'thumbnail' ],
+                'supports'     => [ 'title', 'editor', 'excerpt', 'thumbnail' ],
                 'show_in_menu' => FALSE,
                 'show_in_rest' => TRUE,
-                // 'taxonomies'   => ['community_type'],
                 'rewrite'      => [
                     'with_front' => FALSE,
                     'pages'      => TRUE,
                     'feeds'      => TRUE,
                     'ep_mask'    => EP_PERMALINK
-                ]
+                ],
+                'has_archive'  => TRUE
             ]
         );
-
-        // $communities->taxonomy(
-        //     'community_type',
-        //     [
-        //         'show_ui'      => FALSE,
-        //         'capabilities' => [
-        //             'manage_terms' => 'manage_custom_taxonomies',
-        //             'edit_terms'   => 'manage_custom_taxonomies',
-        //             'delete_terms' => 'manage_custom_taxonomies',
-        //             'assign_terms' => 'manage_custom_taxonomies',
-        //         ]
-        //     ]
-        // );
-
-        // $communities->columns()->set([
-        //     'cb'         => '<input type="checkbox" />',
-        //     'title'      => __('Title'),
-        //     'community' => __('Community Type')
-        // ]);
     } 
 }
