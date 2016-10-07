@@ -24,7 +24,7 @@ class Business
                 'supports'     => [ 'title', 'editor', 'excerpt', 'thumbnail' ],
                 'show_in_menu' => FALSE,
                 'show_in_rest' => TRUE,
-                'taxonomies'   => [ 'business_type' ],
+                'taxonomies'   => [ 'business_type', 'post_tag', 'category' ],
                 'rewrite'      => [ 'with_front' => FALSE ],
                 'has_archive'  => TRUE
             ]

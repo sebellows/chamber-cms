@@ -19,9 +19,10 @@ class Attraction
                 'supports'     => [ 'title', 'editor', 'excerpt', 'thumbnail', 'revisions' ],
                 'show_in_menu' => FALSE,
                 'show_in_rest' => TRUE,
-                'taxonomies'   => [ 'attraction_category' ],
+                'taxonomies'   => [ 'attraction_category', 'post_tag', 'category' ],
                 'rewrite'      => [ 'with_front' => FALSE ],
-                'has_archive'  => 'attractions'
+                'has_archive'  => 'attractions',
+                // 'register_meta_box_cb' => [&$this, 'metabox']
             ]
         );
 
@@ -51,5 +52,16 @@ class Attraction
             'title'               => __('Title'),
             'attraction_category' => __('Attraction Category')
         ]);
+
+        add_action('add_meta_boxes_post', [&$this, 'metabox']);
     } 
+
+    // public function metabox()
+    // {
+    //     global $wp_meta_boxes;
+
+    //     $current = $wp_meta_boxes['post']['side']['core']['attraction_categorydiv'];
+    //     unset($wp_meta_boxes['post']['side']['core']['attraction_categorydiv']);
+    //     $wp_meta_boxes['post']['side']['core'] = ['attraction_categorydiv' => $current] + $wp_meta_boxes['post']['side']['core'];
+    // }
 }

@@ -60,38 +60,38 @@ foreach ($iterator as $directory)
         continue;
     }
 
-    $config = $oni->getPluginConfig($root);
+    $oni_config = $oni->getPluginConfig($root);
 
-    $plugin = substr($root . '/plugin.php', strlen(plugin_directory()));
-    $plugin = ltrim($plugin, '/');
+    $oni_plugin = substr($root . '/plugin.php', strlen(plugin_directory()));
+    $oni_plugin = ltrim($oni_plugin, '/');
 
-    register_activation_hook($plugin, function () use ($oni, $config, $root)
+    register_activation_hook($oni_plugin, function () use ($oni, $oni_config, $root)
     {
-        if ( ! $oni->pluginMatches($config))
+        if ( ! $oni->pluginMatches($oni_config))
         {
             $oni->pluginMismatched($root);
         }
 
         $oni->pluginMatched($root);
-        $oni->loadPlugin($config);
+        $oni->loadPlugin($oni_config);
         $oni->activatePlugin($root);
     });
 
-    register_deactivation_hook($plugin, function () use ($oni, $root)
+    register_deactivation_hook($oni_plugin, function () use ($oni, $root)
     {
         $oni->deactivatePlugin($root);
     });
 
     // Ugly hack to make the install hook work correctly
     // as WP doesn't allow closures to be passed here
-    register_uninstall_hook($plugin, create_function('', 'oni()->deletePlugin(\'' . $root . '\');'));
+    register_uninstall_hook($oni_plugin, create_function('', 'oni()->deletePlugin(\'' . $root . '\');'));
 
-    if ( ! is_plugin_active($plugin))
+    if ( ! is_plugin_active($oni_plugin))
     {
         continue;
     }
 
-    if ( ! $oni->pluginMatches($config))
+    if ( ! $oni->pluginMatches($oni_config))
     {
         $oni->pluginMismatched($root);
 
@@ -102,7 +102,7 @@ foreach ($iterator as $directory)
 
     @require_once $root.'/plugin.php';
 
-    $oni->loadPlugin($config);
+    $oni->loadPlugin($oni_config);
 }
 
 /**
@@ -110,5 +110,4 @@ foreach ($iterator as $directory)
  */
 $oni->boot();
 
-// $plugin = new \Oni\Framework\Plugin(__DIR__ . '/../');
-// dd($plugin->setContainer($oni)->getContainer());
+// dd($oni_plugin);
