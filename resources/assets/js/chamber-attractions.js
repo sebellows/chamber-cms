@@ -14,10 +14,8 @@
 */
 
 function new_map( $el ) {
-    
     // var
     var $markers = $el.find('.marker');
-    
     
     // vars
     var args = {
