@@ -1,8 +1,8 @@
 <?php
 
-namespace Chamber\Widgets;
+namespace Chamber\Plugin\Widgets;
 
-use Chamber\Helper;
+use Chamber\Plugin\Helper;
 
 /**
  * @see docs

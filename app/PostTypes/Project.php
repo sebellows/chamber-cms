@@ -1,6 +1,6 @@
 <?php
 
-namespace Chamber\PostTypes;
+namespace Chamber\Plugin\PostTypes;
 
 use PostTypes\PostType;
 

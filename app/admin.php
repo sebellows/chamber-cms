@@ -1,6 +1,6 @@
 <?php
 
-namespace Chamber;
+namespace Chamber\Plugin;
 
 add_action( 'admin_menu', __NAMESPACE__.'\\chamber_add_options_sub_page' );
 

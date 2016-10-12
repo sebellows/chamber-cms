@@ -1,8 +1,8 @@
 <?php
 
-namespace Chamber\ACF;
+namespace Chamber\Plugin\ACF;
 
-use Chamber\Helper;
+use Chamber\Plugin\Helper;
 use acf_field;
 
 /**

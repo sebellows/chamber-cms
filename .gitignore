@@ -1,6 +1,11 @@
 # Vendor (e.g. Composer)
 # vendor/*
 # !vendor/.gitkeep
+public/icons/SVG
+public/icons/SVG/*
 
 # Node Package Manager
 node_modules
+
+# Misc
+.DS_Store

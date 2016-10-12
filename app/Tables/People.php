@@ -1,6 +1,6 @@
 <?php
 
-namespace Chamber\Tables;
+namespace Chamber\Plugin\Tables;
 
 use Illuminate\Database\Schema\Blueprint;
 

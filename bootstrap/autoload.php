@@ -110,4 +110,4 @@ foreach ($iterator as $directory)
  */
 $oni->boot();
 
-// dd($oni_plugin);
+// dd($oni->basePath());

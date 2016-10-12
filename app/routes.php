@@ -1,5 +1,5 @@
 <?php
 
-namespace Chamber;
+namespace Chamber\Plugin;
 
 /** @var \Oni\Framework\Router $router */

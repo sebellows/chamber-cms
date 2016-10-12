@@ -1,6 +1,6 @@
 <?php
 
-namespace Chamber\Admin;
+namespace Chamber\Plugin\Admin;
 
 /**
  * Admin Menus and Metaboxes

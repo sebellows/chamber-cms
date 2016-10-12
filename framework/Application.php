@@ -167,7 +167,7 @@ class Application extends \Illuminate\Container\Container implements \Illuminate
      */
     public function basePath()
     {
-        return content_directory() . '/.cache';
+        return plugin_directory().DS.plugin_basename(dirname(dirname(__FILE__)));
     }
 
     /**
@@ -727,8 +727,12 @@ class Application extends \Illuminate\Container\Container implements \Illuminate
             'Oni\Framework\Providers\OniServiceProvider'
         ));
 
+        // $this->register($this->resolveProviderClass(
+        //     'Oni\Framework\Providers\TwigServiceProvider'
+        // ));
+
         $this->register($this->resolveProviderClass(
-            'Oni\Framework\Providers\TwigServiceProvider'
+            'Oni\Framework\Providers\ViewServiceProvider'
         ));
     }
 

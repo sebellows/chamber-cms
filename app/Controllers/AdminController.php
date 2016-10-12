@@ -1,8 +1,8 @@
 <?php
 
-namespace Chamber\Controllers;
+namespace Chamber\Plugin\Controllers;
 
-use Chamber\Helper;
+use Chamber\Plugin\Helper;
 
 /**
  * Class AdminController.

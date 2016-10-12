@@ -1,6 +1,6 @@
 <?php
 
-namespace Chamber\ACF;
+namespace Chamber\Plugin\ACF;
 
 /**
  * SVG Icon picker field using Advanced Custom Fields plugin.

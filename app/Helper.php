@@ -1,6 +1,6 @@
 <?php
 
-namespace Chamber;
+namespace Chamber\Plugin;
 
 class Helper {
 

@@ -58,7 +58,7 @@ return [
      * The tables to manage.
      */
     'tables' => [
-        // 'people' => 'Chamber\Tables\People'
+        // 'people' => 'Chamber\Plugin\Tables\People'
     ],
 
     /**

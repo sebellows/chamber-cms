@@ -1,6 +1,6 @@
 <?php
 
-namespace Chamber\Models;
+namespace Chamber\Plugin\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;

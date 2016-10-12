@@ -1,8 +1,8 @@
 <?php
 
-namespace Chamber;
+namespace Chamber\Plugin;
 
-use Chamber\Helper;
+use Chamber\Plugin\Helper;
 
 /** @var \Oni\Plugin\Panel $panel */
 

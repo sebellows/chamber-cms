@@ -1,6 +1,6 @@
 <?php
 
-namespace Chamber;
+namespace Chamber\Plugin;
 
 /** @var  \Oni\Framework\Application $container */
 /** @var  \Oni\Framework\Request $request */
