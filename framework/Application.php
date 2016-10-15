@@ -727,13 +727,13 @@ class Application extends \Illuminate\Container\Container implements \Illuminate
             'Oni\Framework\Providers\OniServiceProvider'
         ));
 
-        // $this->register($this->resolveProviderClass(
-        //     'Oni\Framework\Providers\TwigServiceProvider'
-        // ));
-
         $this->register($this->resolveProviderClass(
-            'Oni\Framework\Providers\ViewServiceProvider'
+            'Oni\Framework\Providers\TwigServiceProvider'
         ));
+
+        // $this->register($this->resolveProviderClass(
+        //     'Oni\Framework\Providers\ViewServiceProvider'
+        // ));
     }
 
     /**

@@ -34,7 +34,6 @@
     "jjgrainger/posttypes": "^1.0",
     "symfony/var-dumper": "~3.0",
     "twig/twig": "~1.16",
-    "xiaoler/blade": "dev-master",
     "vierbergenlars/php-semver": "~3.0"
   }
 }
