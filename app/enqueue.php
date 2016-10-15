@@ -53,31 +53,16 @@ $enqueue->admin([
 |
 | Register the CSS and JavaScript for the admin settings menu page.
 */
-$enqueue->admin([
-    'as' => 'widgetJS',
-    'src' => Helper::assetUrl('/js/chamber-widgets.js'),
-    'dep' => 'jquery',
-    'filter' => [ 'hook' => 'widgets.php' ],
-], 'footer');
+// $enqueue->admin([
+//     'as' => 'panelCSS',
+//     'src' => Helper::assetUrl('/css/chamber-panel.css'),
+//     'filter' => [ 'panel' => '*' ],
+// ]);
 
-
-/*
-|--------------------------------------------------------------------------
-| Google Maps API
-|--------------------------------------------------------------------------
-|
-| Used by the Attractions posts.
-*/
-$enqueue->front([
-    'as' => 'googlemaps',
-    'src' => '//maps.googleapis.com/maps/api/js?key=AIzaSyAS0yll51lLq5yVbqysc6gtKExyIKdURzE',
-    'dep' => 'jquery',
-    'filter' => [ 'postType' => 'attractions' ],
-], 'footer');
-
-$enqueue->front([
-    'as' => 'attractionsJS',
-    'src' => Helper::assetUrl('/js/chamber-attractions.js'),
-    'dep' => 'jquery',
-    'filter' => [ 'postType' => 'attractions' ],
-], 'footer');
+// $enqueue->admin([
+//     'as' => 'acfRCPOptions',
+//     'src' => Helper::assetUrl('/js/acfRestrictColorPicker.js'),
+//     'dep' => 'jquery',
+//     'filter' => [ 'hook' => 'post.php' ],
+//     'localize' => \Chamber\ACF\acfRestrictColorPicker::localize();
+// ], 'footer');

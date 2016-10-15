@@ -1,6 +1,6 @@
 <?php
 
-namespace Oni;
+namespace Chamber\Plugin;
 
 /** @var \Oni\Providers\TwigServiceProvider $twig */
 
