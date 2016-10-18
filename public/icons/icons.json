@@ -726,6 +726,36 @@
       "id": 0,
       "name": "zoom-out",
       "prevSize": 32
+    },
+    {
+      "order": 123,
+      "id": 123,
+      "name": "facebook",
+      "prevSize": 32
+    },
+    {
+      "order": 124,
+      "id": 124,
+      "name": "twitter",
+      "prevSize": 32
+    },
+    {
+      "order": 125,
+      "id": 125,
+      "name": "instagram",
+      "prevSize": 32
+    },
+    {
+      "order": 126,
+      "id": 126,
+      "name": "linkedin",
+      "prevSize": 32
+    },
+    {
+      "order": 127,
+      "id": 127,
+      "name": "youtube",
+      "prevSize": 32
     }
   ]
 }
