@@ -2,60 +2,62 @@
 
 namespace Chamber\Plugin;
 
-add_action( 'admin_menu', __NAMESPACE__.'\\chamber_add_options_sub_page' );
+/**
+ * Custom Post Types
+ *
+ * @var array
+ */
+const CHAMBER_PLUGIN_POST_TYPES = [
+	'attraction',
+	'business',
+	'community',
+	'person',
+	'project',
+	'testimonial'
+];
 
-function chamber_add_options_sub_page($parent_file) {
+/**
+ * Custom Taxonomies
+ *
+ * @var array
+ */
+const CHAMBER_PLUGIN_TAXONOMIES = [
+	'attraction_category',
+	'business_type',
+	'department'
+];
 
-	/**
-	 * Custom Post Types
-	 *
-	 * @var array
-	 */
-	$chamber_custom_posttypes = [
-		'attraction',
-		'business',
-		'community',
-		'person',
-		'project',
-		'testimonial'
-	];
+const CHAMBER_PLUGIN_INDEX = 'chamber-index';
 
-	/**
-	 * Custom Taxonomies
-	 *
-	 * @var array
-	 */
-	$chamber_taxonomies = [
-		'attraction_category',
-		'business_type',
-		'department'
-	];
+add_action( 'admin_menu', __NAMESPACE__.'\\add_options_sub_page' );
 
-	foreach( $chamber_custom_posttypes as $chamber_custom_posttype ) {
-		$key = array_search($chamber_custom_posttype, $chamber_custom_posttypes);
+function add_options_sub_page($parent_file) {
+
+	foreach( CHAMBER_PLUGIN_POST_TYPES as $chamber_custom_posttype ) {
+		$key = array_search($chamber_custom_posttype, CHAMBER_PLUGIN_POST_TYPES);
 		$chamber_custom_posttype_title = $chamber_custom_posttype == 'faq' ? Helper::all_caps($chamber_custom_posttype) : Helper::humanize(Helper::pluralize($chamber_custom_posttype));
 
-		add_submenu_page( 'chamber-index', $chamber_custom_posttype_title, $chamber_custom_posttype_title, 'manage_options', 'edit.php?post_type=' . $chamber_custom_posttype, null, $key++);
+		add_submenu_page( CHAMBER_PLUGIN_INDEX, $chamber_custom_posttype_title, $chamber_custom_posttype_title, 'manage_options', 'edit.php?post_type=' . $chamber_custom_posttype, null, $key++);
 	}
 
-	foreach( $chamber_taxonomies as $chamber_taxonomy ) {
-		$key = array_search($chamber_taxonomy, $chamber_taxonomies);
+	foreach( CHAMBER_PLUGIN_TAXONOMIES as $chamber_taxonomy ) {
+		$key = array_search($chamber_taxonomy, CHAMBER_PLUGIN_TAXONOMIES);
 
 		$chamber_submenu_page_title = Helper::humanize(Helper::pluralize($chamber_taxonomy));
 
-		add_submenu_page( 'chamber-index', $chamber_submenu_page_title, $chamber_submenu_page_title, 'manage_options', 'edit-tags.php?taxonomy=' . $chamber_taxonomy, null, $key++);
+		add_submenu_page( CHAMBER_PLUGIN_INDEX, $chamber_submenu_page_title, $chamber_submenu_page_title, 'manage_options', 'edit-tags.php?taxonomy=' . $chamber_taxonomy, null, $key++);
 	}
 
 	// highlight the proper top level menu
-	add_action( 'admin_menu','chamber_tax_menu_highlight' );
+	add_action( 'admin_menu', __NAMESPACE__.'\\tax_menu_highlight' );
 
-	function chamber_tax_menu_highlight($parent_file) {
+	function tax_menu_highlight($parent_file) {
 		global $current_screen;
 		$taxonomy = $current_screen->taxonomy;
 
-		foreach( $chamber_taxonomies as $chamber_taxonomy ) {
+		foreach( CHAMBER_PLUGIN_TAXONOMIES as $chamber_taxonomy ) {
 			if( $taxonomy == $chamber_taxonomy ) {
-				$parent_file = 'chamber-index';
+				$parent_file = CHAMBER_PLUGIN_INDEX;
 			}
 		}
 
@@ -63,21 +65,36 @@ function chamber_add_options_sub_page($parent_file) {
 	}
 }
 
+add_filter('acf/update_value/name=people_first_name', __NAMESPACE__.'\\filter_people_title', 10, 3);
+add_filter('acf/update_value/name=people_last_name',  __NAMESPACE__.'\\filter_people_title', 10, 3);
 
-if ( function_exists( 'chamber_remove_custom_posttype_meta' ) ) {
+/**
+ * Generate a title for the Person post type using the first and last name fields.
+ *
+ * @source  http://www.jennybeaumont.com/auto-create-post-title-acf-data/
+ * 
+ * @param  string $person_title   the new title composed of the person's name
+ * @param  integer $post_id       the Person post ID
+ * 
+ * @return string                 the new title
+ */
+function filter_people_title( $person_title, $post_id, $field )
+{
+    $firstName = get_field('people_first_name');
+    $lastName  = get_field('people_last_name');
 
-	if ( !current_user_can( 'activate_plugins' ) ) {
+    $title = $firstName . ' ' . $lastName;
 
-		function chamber_remove_custom_posttype_meta() {
-			$chamber_removable_taxonomies = ['attraction_category'];
-			foreach( $chamber_removable_taxonomies as $chamber_removable_taxonomy ) {
+    $slug = sanitize_title( $firstName . '-' . $lastName );
 
-				$post_types = get_post_types();
+    $postdata = [
+        'ID' => $post_id,
+        'post_title' => $title,
+        'post_type' => 'person',
+        'post_name' => $slug
+    ];
 
-				foreach( $post_types as $post_type ) { remove_meta_box( $chamber_removable_taxonomy . 'div', $post_type, 'side' );
-				}
-			}
-		}
-		add_action( 'admin_head' , 'chamber_remove_custom_posttype_meta' );
-	}
+    wp_update_post( $postdata );
+
+    return $person_title;
 }
