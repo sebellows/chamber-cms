@@ -59,7 +59,7 @@
     background-color: #FEFEFE;
     padding: 10px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
-    height: auto;
+    min-height: 276px;
     width: 300px;
     border: 1px solid #DCDCDC;
     margin-top: -1px; }
@@ -103,7 +103,8 @@
     width: 100%;
     background-color: #FEFEFE;
     border: 1px solid #DCDCDC;
-    box-sizing: border-box; }
+    box-sizing: border-box; 
+    min-height: 178px; }
     .icons-selector .chamber-icons-container .loading {
       fill: #E6E6E6;
       margin: 20px auto;
@@ -122,12 +123,20 @@
     vertical-align: top;
     -webkit-transition: background-color .3s;
     transition: background-color .3s; }
-    .icons-selector .chamber-box:focus, .icons-selector .chamber-box:hover {
+    .icons-selector .chamber-box:focus, 
+    .icons-selector .chamber-box:hover {
       background-color: #52ACCC; }
+      .icons-selector .chamber-box:focus > svg, 
+      .icons-selector .chamber-box:hover > svg {
+        transform: scale(1.25);
+      }
     .icons-selector .chamber-box > svg {
-      width: 24px;
-      height: 24px;
-      margin-top: 8px; }
+      width: 1.25rem;
+      height: 1.25rem;
+      margin-top: .5rem;
+      transform: scale(1.0);
+      -webkit-transition: -webkit-transform .3s cubic-bezier(0.4,0,0.2,0);
+      transition: transform .3s cubic-bezier(0.4,0,0.2,0); }
   .icons-selector .selector-footer {
     color: #999;
     line-height: 16px;
@@ -161,7 +170,7 @@
     cursor: pointer; }
   .icons-selector .chamber-icon-block[data-chamber-value="chamber-icon-block"],
   .icons-selector .selected-icon svg.chamber-icon-block {
-    fill: #FED0D0; }
+    fill: rgba(236,88,64,.5); }
   .icons-selector .chamber-icon-spin {
     -webkit-animation: spin 2s infinite linear;
     animation: spin 2s infinite linear;

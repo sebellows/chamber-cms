@@ -72,7 +72,7 @@
     background-color: $white;
     padding: 10px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, .04);
-    height: auto;
+    min-height: 276px;
     width: 300px;
     border: 1px solid $gainsboro;
     margin-top: -1px;
@@ -139,6 +139,7 @@
     background-color: $white;
     border: 1px solid $gainsboro;
     box-sizing: border-box;
+    min-height: 178px;
 
     .loading {
       fill: $snow;
@@ -165,12 +166,18 @@
     &:focus,
     &:hover {
       background-color: $primary;
+
+      > svg {
+        transform: scale(1.25);
+      }
     }
 
     > svg {
-      width: 24px;
-      height: 24px;
-      margin-top: 8px;
+      width: 1.25rem;
+      height: 1.25rem;
+      margin-top: .5rem;
+      transform: scale(1);
+      transition: transform .3s cubic-bezier(0.4,0,0.2,0);
     }
   }
 
@@ -240,7 +247,7 @@
   // Empty icon block
   .chamber-icon-block[data-chamber-value="chamber-icon-block"],
   .selected-icon svg.chamber-icon-block {
-    fill: #FED0D0;
+    fill: rgba(236,88,64,.5);
   }
 
   // Spinner icon for loader

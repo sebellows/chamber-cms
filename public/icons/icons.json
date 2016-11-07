@@ -32,18 +32,6 @@
       "prevSize": 32
     },
     {
-      "order": 7,
-      "id": 115,
-      "name": "arrow-left",
-      "prevSize": 32
-    },
-    {
-      "order": 8,
-      "id": 114,
-      "name": "arrow-right",
-      "prevSize": 32
-    },
-    {
       "order": 9,
       "id": 113,
       "name": "arrow-wide-left",
@@ -64,7 +52,7 @@
     {
       "order": 12,
       "id": 110,
-      "name": "art",
+      "name": "art-and-culture",
       "prevSize": 32
     },
     {
@@ -206,24 +194,6 @@
       "prevSize": 32
     },
     {
-      "order": 36,
-      "id": 86,
-      "name": "cloud-download",
-      "prevSize": 32
-    },
-    {
-      "order": 37,
-      "id": 85,
-      "name": "cloud-upload",
-      "prevSize": 32
-    },
-    {
-      "order": 38,
-      "id": 84,
-      "name": "cloud",
-      "prevSize": 32
-    },
-    {
       "order": 39,
       "id": 83,
       "name": "cocktail",
@@ -278,45 +248,15 @@
       "prevSize": 32
     },
     {
-      "order": 48,
-      "id": 74,
-      "name": "double-angle-left",
-      "prevSize": 32
-    },
-    {
-      "order": 49,
-      "id": 73,
-      "name": "double-angle-right",
-      "prevSize": 32
-    },
-    {
-      "order": 50,
-      "id": 72,
-      "name": "download",
-      "prevSize": 32
-    },
-    {
       "order": 51,
       "id": 71,
       "name": "drag",
       "prevSize": 32
     },
     {
-      "order": 52,
-      "id": 70,
-      "name": "ellipsis",
-      "prevSize": 32
-    },
-    {
       "order": 53,
       "id": 69,
       "name": "email",
-      "prevSize": 32
-    },
-    {
-      "order": 54,
-      "id": 68,
-      "name": "experimental",
       "prevSize": 32
     },
     {
@@ -347,12 +287,6 @@
       "order": 59,
       "id": 63,
       "name": "folder",
-      "prevSize": 32
-    },
-    {
-      "order": 60,
-      "id": 62,
-      "name": "free",
       "prevSize": 32
     },
     {
@@ -494,18 +428,6 @@
       "prevSize": 32
     },
     {
-      "order": 84,
-      "id": 38,
-      "name": "paragraph",
-      "prevSize": 32
-    },
-    {
-      "order": 85,
-      "id": 37,
-      "name": "paw-print",
-      "prevSize": 32
-    },
-    {
       "order": 86,
       "id": 36,
       "name": "person",
@@ -527,12 +449,6 @@
       "order": 89,
       "id": 33,
       "name": "plus-circle",
-      "prevSize": 32
-    },
-    {
-      "order": 90,
-      "id": 32,
-      "name": "plus-square",
       "prevSize": 32
     },
     {
@@ -626,12 +542,6 @@
       "prevSize": 32
     },
     {
-      "order": 106,
-      "id": 16,
-      "name": "thumbsup",
-      "prevSize": 32
-    },
-    {
       "order": 107,
       "id": 15,
       "name": "ticket",
@@ -641,12 +551,6 @@
       "order": 108,
       "id": 14,
       "name": "trash",
-      "prevSize": 32
-    },
-    {
-      "order": 109,
-      "id": 13,
-      "name": "tree",
       "prevSize": 32
     },
     {
@@ -674,27 +578,9 @@
       "prevSize": 32
     },
     {
-      "order": 114,
-      "id": 8,
-      "name": "undo_1",
-      "prevSize": 32
-    },
-    {
-      "order": 115,
-      "id": 7,
-      "name": "undo",
-      "prevSize": 32
-    },
-    {
       "order": 116,
       "id": 6,
       "name": "unlocked",
-      "prevSize": 32
-    },
-    {
-      "order": 117,
-      "id": 5,
-      "name": "upload",
       "prevSize": 32
     },
     {
@@ -707,12 +593,6 @@
       "order": 119,
       "id": 3,
       "name": "visible",
-      "prevSize": 32
-    },
-    {
-      "order": 120,
-      "id": 2,
-      "name": "year-round",
       "prevSize": 32
     },
     {
@@ -755,6 +635,78 @@
       "order": 127,
       "id": 127,
       "name": "youtube",
+      "prevSize": 32
+    },
+    {
+      "order": 128,
+      "id": 128,
+      "name": "dining",
+      "prevSize": 32
+    },
+    {
+      "order": 129,
+      "id": 129,
+      "name": "golf",
+      "prevSize": 32
+    },
+    {
+      "order": 130,
+      "id": 130,
+      "name": "learn",
+      "prevSize": 32
+    },
+    {
+      "order": 131,
+      "id": 131,
+      "name": "lodging",
+      "prevSize": 32
+    },
+    {
+      "order": 132,
+      "id": 132,
+      "name": "park",
+      "prevSize": 32
+    },
+    {
+      "order": 133,
+      "id": 133,
+      "name": "shared-services",
+      "prevSize": 32
+    },
+    {
+      "order": 134,
+      "id": 134,
+      "name": "sports",
+      "prevSize": 32
+    },
+    {
+      "order": 135,
+      "id": 135,
+      "name": "training",
+      "prevSize": 32
+    },
+    {
+      "order": 136,
+      "id": 136,
+      "name": "transportation",
+      "prevSize": 32
+    },
+    {
+      "order": 137,
+      "id": 137,
+      "name": "volunteer",
+      "prevSize": 32
+    },
+    {
+      "order": 138,
+      "id": 138,
+      "name": "angle-down",
+      "prevSize": 32
+    },
+    {
+      "order": 139,
+      "id": 139,
+      "name": "angle-up",
       "prevSize": 32
     }
   ]
