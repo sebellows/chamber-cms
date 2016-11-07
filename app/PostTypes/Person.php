@@ -6,7 +6,7 @@ use PostTypes\PostType;
 
 /**
  * People
- * 
+ *
  * @var \PostTypes\PostType
  */
 class Person
@@ -17,8 +17,8 @@ class Person
             [
                 'name'     => 'person',
                 'singular' => 'Person',
-                'plural'   => 'People',
-                'slug'     => 'people'
+                'plural'   => 'Contact',
+                'slug'     => 'contact'
             ],
             [
                 'supports'     => [ 'thumbnail' ],
@@ -51,5 +51,5 @@ class Person
             'title'      => __('Title'),
             'department' => __('Department')
         ]);
-    } 
+    }
 }
