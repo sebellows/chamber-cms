@@ -2,6 +2,8 @@
 
 namespace Chamber\Plugin\Admin;
 
+use Chamber\Plugin\PostTypes\Person;
+
 /**
  * Admin Menus and Metaboxes
  */
@@ -94,7 +96,8 @@ class Admin
 	 * @param  string $parent_file Our plugin`s admin index url.
 	 * @return string
 	 */
-	protected function menuHighlight() {
+	protected function menuHighlight()
+	{
 		global $current_screen;
 
 		$parentPage = null
@@ -114,7 +117,8 @@ class Admin
 	 * 
 	 * @return void
 	 */
-	public function removeMetaBoxes(array $removables = []) {
+	public function removeMetaBoxes(array $removables = [])
+	{
 		collect($metaboxes)->each(function ($metabox) {
 			collect(get_post_types())->each(function ($existingPostType) {
 				remove_meta_box( $metabox . 'div', $existingPostType, 'side' );

@@ -41,10 +41,10 @@
         style:    'position: relative',
          html:    '<div class="selector">' +
                     '<span class="selected-icon">' +
-                      '<svg class="chamber-icon-up-dir" viewbox="0 0 32 32"><use xlink:href="#icon-arrow-up" /></svg>' +
+                      '<svg class="chamber-icon-up-dir" viewbox="0 0 32 32"><use xlink:href="#icon-angle-up" /></svg>' +
                     '</span>' +
                     '<span class="selector-button">' +
-                      '<svg class="chamber-icon-down-dir" viewbox="0 0 32 32"><use xlink:href="#icon-arrow-down" /></svg>' +
+                      '<svg class="chamber-icon-down-dir" viewbox="0 0 32 32"><use xlink:href="#icon-angle-down" /></svg>' +
                     '</span>' +
                    '</div>' +
                    '<div class="selector-popup" style="display: none;">' + ((this.settings.hasSearch) ?
@@ -60,11 +60,11 @@
                      '<div class="selector-footer" style="display:none;">' +
                        '<span class="selector-pages">1/2</span>' +
                        '<span class="selector-arrows">' +
-                         '<span class="selector-arrow-left" style="display:none;">' +
-                           '<svg class="chamber-icon-left-dir" viewbox="0 0 32 32"><use xlink:href="#icon-arrow-left" /></svg>' +
+                         '<span class="selector-arrow-left">' +
+                           '<svg class="chamber-icon-left-dir" viewbox="0 0 32 32"><use xlink:href="#icon-arrow-wide-left" /></svg>' +
                          '</span>' +
                          '<span class="selector-arrow-right">' +
-                           '<svg class="chamber-icon-left-dir" viewbox="0 0 32 32"><use xlink:href="#icon-arrow-right" /></svg>' +
+                           '<svg class="chamber-icon-left-dir" viewbox="0 0 32 32"><use xlink:href="#icon-arrow-wide-right" /></svg>' +
                          '</span>' +
                        '</span>' +
                      '</div>' +
@@ -315,13 +315,13 @@
       this.iconPicker.find('.selector-arrow-right').click($.proxy(function (e) {
 
         if (this.currentPage < this.totalPage) {
-          this.iconPicker.find('.selector-arrow-left').show();
+          this.iconPicker.find('.selector-arrow-left').css({'opacity': '1', 'pointer-events': 'all'});
           this.currentPage = this.currentPage + 1;
           this.renderIconContainer();
         }
 
         if (this.currentPage === this.totalPage) {
-          $(e.currentTarget).hide();
+          $(e.currentTarget).css({'opacity': '.5', 'pointer-events': 'none'});
         }
 
       }, this));
@@ -332,13 +332,13 @@
       this.iconPicker.find('.selector-arrow-left').click($.proxy(function (e) {
 
         if (this.currentPage > 1) {
-          this.iconPicker.find('.selector-arrow-right').show();
+          this.iconPicker.find('.selector-arrow-right').css({'opacity': '1', 'pointer-events': 'all'});
           this.currentPage = this.currentPage - 1;
           this.renderIconContainer();
         }
 
         if (this.currentPage === 1) {
-          $(e.currentTarget).hide();
+          $(e.currentTarget).css({'opacity': '.5', 'pointer-events': 'none'});
         }
 
       }, this));
@@ -606,11 +606,11 @@
       // Should empty icon be shown?
       if (this.settings.emptyIcon) {
         // Reset icon container HTML and prepend empty icon
-        this.iconContainer.html('<span class="chamber-box"><svg class="chamber-icon-block" data-chamber-value="chamber-icon-block" viewBox="0 0 32 32"><use xlink:href="#icon-cancel-circle" /></svg></span>');
+        this.iconContainer.html('<span class="chamber-box"><svg class="chamber-icon-block" data-chamber-value="icon-ban" viewBox="0 0 32 32" fill="#ec5840" opacity=".5"><use xlink:href="#icon-ban" /></svg></span>');
 
       // If not show an error when no icons are found
       } else if (iconsPaged.length < 1) {
-        this.iconContainer.html('<span class="icons-picker-error"><svg class="chamber-icon-block" data-chamber-value="chamber-icon-block" viewBox="0 0 32 32"><use xlink:href="#icon-cancel-circle" /></svg></span>');
+        this.iconContainer.html('<span class="icons-picker-error"><svg class="chamber-icon-block" data-chamber-value="icon-ban" viewBox="0 0 32 32" fill="#ec5840" opacity="1"><use xlink:href="#icon-ban" /></svg></span>');
         return;
 
       // else empty the container
@@ -729,7 +729,7 @@
       this.searchIcon.addClass('chamber-icon-search');
 
       // Go back to page 1 and remove back arrow
-      this.iconPicker.find('.selector-arrow-left').hide();
+      this.iconPicker.find('.selector-arrow-left').css({'opacity': '.5', 'pointer-events': 'none'});
       this.currentPage = 1;
       this.isSearch = false;
 
@@ -738,7 +738,7 @@
 
       // Restore pagination if needed
       if (this.totalPage > 1) {
-        this.iconPicker.find('.selector-arrow-right').show();
+        this.iconPicker.find('.selector-arrow-right').css({'opacity': '1', 'pointer-events': 'all'});
       }
     }
   };

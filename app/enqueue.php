@@ -65,10 +65,3 @@ $enqueue->front([
     'dep' => ['googlemaps', 'jquery'],
     'filter' => [ 'postType' => 'attraction' ],
 ], 'footer');
-
-// $enqueue->front([
-//     'as' => 'attractionsJS',
-//     'src' => Helper::assetUrl('/js/chamber-attractions.js'),
-//     'dep' => 'jquery',
-//     'filter' => [ 'postType' => 'attraction' ],
-// ], 'footer');
