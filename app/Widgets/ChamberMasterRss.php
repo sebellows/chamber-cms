@@ -66,7 +66,7 @@ class ChamberMasterRss extends \WP_Widget {
                     list($date, $title) = explode(' - ', $rssItem->get_title());
             ?>
                     <li class="event">
-                        <time class="event-time">
+                        <time class="event-time" datetime="<?= get_the_time( 'Y-m-d\TH:i:sP' ); ?>" itemprop="datePublished">
                             <span class="event-date">
                                 <span class="event-day"><?= date_format(date_create($date), 'd'); ?></span>
                                 <span class="event-month"><?= date_format(date_create($date), 'M'); ?></span>
@@ -75,12 +75,12 @@ class ChamberMasterRss extends \WP_Widget {
                         </time>
 
                         <div class="event-desc">
-                            <h4 class="event-desc-header"><?= $title; ?></h4>
+                            <h4 class="event-desc-header" itemprop="headline"><a href="<?= $rssItem->get_permalink(); ?>" itemprop="bookmark"><?= $title; ?></a></h4>
 
-                            <div class="event-desc-detail">
-                                <?= substr(strip_tags($rssItem->get_description()), 0, $this->description_length); ?>
-                            </div>
-                            <a href="<?= $rssItem->get_permalink(); ?>" class="small hollow rsvp button">RSVP &amp; Details</a>
+                            <p class="event-desc-detail" itemprop="description">
+                                <?= Helper::limitContent( strip_tags( $rssItem->get_description() ), $this->description_length ); ?>
+                            </p>
+                            <a href="<?= $rssItem->get_permalink(); ?>" class="small hollow rsvp button" itemprop="url">RSVP &amp; Details</a>
                         </div>
 
                     </li>

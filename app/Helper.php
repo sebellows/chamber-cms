@@ -175,4 +175,30 @@ class Helper {
         return sprintf("%s%s%s", $prefix, $splitter, $string);
     }
 
+    /**
+     * Limit the length of an excerpt.
+     *
+     * @param integer $limit the character count limit
+     * @param string  $continued_mark glyph or text to communicate that this is abbreviated text
+     * @return string excerpt text
+     */
+    public static function limitContent( $content = '', $limit = 120, $continued_mark = '&hellip;' ) {
+
+        $content = wordwrap($content, $limit);
+
+        // Do not cut if too short
+        if ( strlen( $content ) < $limit ) {
+            return $content;
+        }
+
+        // Find the next space after `$limit` to prevent sudden word break
+        $break = strpos( $content, ' ', $limit );
+
+        // Take the existing content and return a subset of it
+        $chunk = substr( $content, 0, $break );
+
+        // Make sure any tags don't get left off in the cut
+        return balanceTags( $chunk ) . $continued_mark;
+    }
+
 }

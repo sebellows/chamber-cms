@@ -16,6 +16,7 @@ class RecentPostsByPostType extends \WP_Widget {
 
     public function __construct()
     {
+        $this->widget       = new WidgetBuilder;
         $this->widget_class = Helper::prefix('recent_posts_by_post_type');
         $this->widget_id    = Helper::slugify($this->widget_class);
         $this->widget_name  = Helper::humanize($this->widget_class);
@@ -56,43 +57,37 @@ class RecentPostsByPostType extends \WP_Widget {
                 'ignore_sticky_posts' => true,
             ] ) );
 
-            if ( $r->have_posts() ) : ?>
-                <?php echo $args['before_widget']; ?>
-                <?php if ( $title ) {
+            if ( $r->have_posts() ) :
+                echo $args['before_widget'];
+                if ( $title ) :
                     echo $args['before_title'] . $title . $args['after_title'];
-                } ?>
+                endif;
+                ?>
                 <ul>
                 <?php while ( $r->have_posts() ) : $r->the_post(); ?>
                     <li>
                         <?php if ( $show_thumb && has_post_thumbnail() ) : ?>
-                            <a class="widget-post-thumbnail" href="<?php the_permalink() ?>">
-                            <?php 
-                                if ( $thumb_size_card ) {
-                                    the_post_thumbnail( 'widget_card' );
-                                } else {
-                                    the_post_thumbnail( 'thumbnail', [ 'class' => 'alignleft' ] );
-                                }
-                            ?>
-                            </a>
+                            <?php if ( $thumb_size_card ) : ?>
+                                <?= $this->widget->thumbnail( 'widget_card', 'widget-card-image' ); ?>
+                            <?php else : ?>
+                                <?= $this->widget->thumbnail(); ?>
+                            <?php endif; ?>
                         <?php endif; ?>
 
                         <?php if ( $show_date ) : ?>
-                            <time class="widget-post-meta"><?php echo the_date(); ?></time>
+                            <?= $this->widget->dateTime(); ?>
                         <?php endif; ?>
 
-                        <h4>
-                            <a href="<?php the_permalink() ?>"><?php get_the_title() ? the_title() : the_ID(); ?></a>
-                        </h4>
+                        <?= $this->widget->postTitle(); ?>
 
-                        <?php if ( $show_excerpt && has_excerpt() ) : ?>
-                            <?php the_excerpt(); ?>
+                        <?php if ( $show_excerpt ) : ?>
+                            <?= $this->widget->excerpt(); ?>
                         <?php endif; ?>
-
                     </li>
                 <?php endwhile; ?>
                 </ul>
-                <?php echo $args['after_widget']; ?>
                 <?php
+                echo $args['after_widget'];
                 wp_reset_postdata();
             endif;
         }
@@ -110,8 +105,8 @@ class RecentPostsByPostType extends \WP_Widget {
         $show_date          = isset( $instance['show_date'] ) ? (bool) $instance['show_date'] : false;
         $thumb_size_card    = isset( $instance['thumb_size_card'] ) ? (bool) $instance['thumb_size_card'] : false;
 ?>
-        <p><label for="<?php echo $this->get_field_id( 'title' ); ?>">Title:</label>
-        <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>" /></p>
+        <p><label for="<?= $this->get_field_id( 'title' ); ?>">Title:</label>
+        <input class="widefat" id="<?= $this->get_field_id( 'title' ); ?>" name="<?= $this->get_field_name( 'title' ); ?>" type="text" value="<?= $title; ?>" /></p>
         
         <?php
 
@@ -145,30 +140,30 @@ class RecentPostsByPostType extends \WP_Widget {
         ?>
 
         <p>
-            <label for="<?php echo $this->get_field_id( 'number' ); ?>">Number of posts to show:</label>
-            <input id="<?php echo $this->get_field_id( 'number' ); ?>" name="<?php echo $this->get_field_name( 'number' ); ?>" type="text" value="<?php echo $number; ?>" size="3" />
+            <label for="<?= $this->get_field_id( 'number' ); ?>">Number of posts to show:</label>
+            <input id="<?= $this->get_field_id( 'number' ); ?>" name="<?= $this->get_field_name( 'number' ); ?>" type="text" value="<?= $number; ?>" size="3" />
         </p>
 
         <p>
-            <input class="checkbox" type="checkbox" id="<?php echo $this->get_field_id( 'show_thumb' ); ?>" name="<?php echo $this->get_field_name( 'show_thumb' ); ?>" <?php checked( $show_thumb ); ?> />
-            <label for="<?php echo $this->get_field_id( 'show_thumb' ); ?>">Display post thumbnail?</label>
+            <input class="checkbox" type="checkbox" id="<?= $this->get_field_id( 'show_thumb' ); ?>" name="<?= $this->get_field_name( 'show_thumb' ); ?>" <?php checked( $show_thumb ); ?> />
+            <label for="<?= $this->get_field_id( 'show_thumb' ); ?>">Display post thumbnail?</label>
         </p>
 
         <p>
             <label>
-                <input class="checkbox" type="checkbox" id="<?php echo $this->get_field_id( 'thumb_size_card' ); ?>" name="<?php echo $this->get_field_name( 'thumb_size_card' ); ?>" <?php checked( $thumb_size_card ); ?> />
+                <input class="checkbox" type="checkbox" id="<?= $this->get_field_id( 'thumb_size_card' ); ?>" name="<?= $this->get_field_name( 'thumb_size_card' ); ?>" <?php checked( $thumb_size_card ); ?> />
                 Make image full-width? (480 × 320)
             </label>
         </p>
 
         <p>
-            <input class="checkbox" type="checkbox" id="<?php echo $this->get_field_id( 'show_excerpt' ); ?>" name="<?php echo $this->get_field_name( 'show_excerpt' ); ?>" <?php checked( $show_excerpt ); ?> />
-            <label for="<?php echo $this->get_field_id( 'show_excerpt' ); ?>">Display post excerpt?</label>
+            <input class="checkbox" type="checkbox" id="<?= $this->get_field_id( 'show_excerpt' ); ?>" name="<?= $this->get_field_name( 'show_excerpt' ); ?>" <?php checked( $show_excerpt ); ?> />
+            <label for="<?= $this->get_field_id( 'show_excerpt' ); ?>">Display post excerpt?</label>
         </p>
 
         <p>
-            <input class="checkbox" type="checkbox" id="<?php echo $this->get_field_id( 'show_date' ); ?>" name="<?php echo $this->get_field_name( 'show_date' ); ?>" <?php checked( $show_date ); ?> />
-            <label for="<?php echo $this->get_field_id( 'show_date' ); ?>">Display post date?</label>
+            <input class="checkbox" type="checkbox" id="<?= $this->get_field_id( 'show_date' ); ?>" name="<?= $this->get_field_name( 'show_date' ); ?>" <?php checked( $show_date ); ?> />
+            <label for="<?= $this->get_field_id( 'show_date' ); ?>">Display post date?</label>
         </p>
 <?php
     }
